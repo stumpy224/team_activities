@@ -1,22 +1,34 @@
-<div class="row">
-  <div class="col-md-12">
-    <form role="form">
-      <div class="form-group">
-        <label for="votingMember">Who's voting?</label>
-        <input type="email" class="form-control" id="identifier" placeholder="Enter ACID">
+<%= form_tag("/submit", remote: true) do %>
+  <div class="form-group">
+    <div class="row row-offset">
+      <div class="col-md-2 col-md-offset-3 col-sm-2">
+        <label>Who's voting?</label>
+        <%= text_field_tag 'member_identifier', 'Enter your ACID', class: 'form-control' %>
       </div>
-      <div class="form-group">
-        <div class="dropdown">
-          <button class="btn btn-default dropdown-toggle" type="button" id="vote1Dropdown" data-toggle="dropdown">
-            1st Vote
-            <span class="caret" />
-          </button>
-          <ul class="dropdown-menu" role="menu" aria-labelledby="vote1Dropdown">
-            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Fogo</a></li>
-          </ul>
-        </div>
+      <div id="member_name" class="col-md-2 col-md-offset-1" style="margin-top:30px;">
+        Jeremiah Stump
       </div>
-      <button type="submit" class="btn btn-default">Submit</button>
-    </form>
+    </div>
+    <div class="row row-offset">
+      <div class="col-md-3 col-md-offset-3 col-sm-3">
+        Nominations
+        <ul class="source connected">
+          <% @restaurants.each do |r| %>
+            <%= content_tag :li do %>
+              <%= r.name %>
+            <% end %>
+          <% end %>
+        </ul>
+      </div>
+      <div class="col-md-3 col-sm-3">
+        Selections
+        <ul class="target connected" />
+      </div>
+    </div>
+    <div class="row row-offset">
+      <div class="col-md-2 col-md-offset-3 col-sm-2">
+        <%= submit_tag 'Submit', id: 'submit_votes', class: 'btn btn-primary', tabindex: 3 %>
+      </div>
+    </div>
   </div>
-</div>
+<% end %>

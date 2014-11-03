@@ -61,6 +61,19 @@ class MembersController < ApplicationController
     end
   end
 
+  def get_member_by_identifier
+    puts 'inside get_member_by_identifier'
+    @member = Member.find_by identifier: params[:acid]
+    if @member.name.nil?
+      puts params[:identifier]
+      # render nothing: true, status: :expectation_failed
+    else
+      puts @member.name
+      respond_with( @member )
+      # render nothing: true, status: :ok
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_member

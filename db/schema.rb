@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141030234733) do
+ActiveRecord::Schema.define(version: 20141102213054) do
 
   create_table "members", force: true do |t|
     t.string   "identifier"
@@ -20,6 +20,8 @@ ActiveRecord::Schema.define(version: 20141030234733) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "members", ["identifier"], name: "index_members_on_identifier", unique: true
 
   create_table "restaurants", force: true do |t|
     t.string   "name"

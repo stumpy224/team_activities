@@ -26,7 +26,8 @@ gem 'twitter-bootstrap-rails'
 group :development, :test do
   gem 'sqlite3'
   gem 'rspec-rails', '2.13.1'
-  gem 'guard-rspec', '2.5.0'
+  gem 'jazz_hands', github: 'nixme/jazz_hands', branch: 'bring-your-own-debugger'
+  gem 'pry-byebug'
 end
 
 group :production do

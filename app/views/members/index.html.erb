@@ -13,10 +13,10 @@
   <tbody>
     <% @members.each do |member| %>
       <tr>
-        <td><%= member.identifier %></td>
-        <td><%= member.name %></td>
-        <td><%= member.active %></td>
-        <td><%= link_to 'Edit', edit_member_path(member) %></td>
+        <td style="padding-right:2em;"><%= member.identifier %></td>
+        <td style="padding-right:3em;"><%= member.name %></td>
+        <td style="padding-right:3em;"><%= member.active %></td>
+        <td><%= link_to 'Edit', edit_member_path(member) %>&nbsp;|&nbsp;</td>
         <td><%= link_to 'Delete', member, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>

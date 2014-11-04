@@ -2,17 +2,30 @@
   <div class="form-group">
     <div class="row row-offset">
       <div class="col-md-2 col-md-offset-3 col-sm-2">
-        <label>Who's voting?</label>
-        <%= text_field_tag 'member_identifier', 'Enter your ACID', class: 'form-control' %>
+        <h4 style="margin-bottom:0px;">Who's voting?</h4>
       </div>
-      <div id="member_name" class="col-md-2 col-md-offset-1" style="margin-top:30px;">
-        Jeremiah Stump
+    </div>
+    <div class="row row-offset">
+      <div class="col-md-2 col-md-offset-3 col-sm-2">
+        <%= text_field_tag 'member_identifier', nil, placeholder: 'Enter your ACID', class: 'form-control' %>
+      </div>
+      <div class="col-md-2 col-md-offset-1 col-sm-2" id='member_name' style='margin-top:10px;'>
+
       </div>
     </div>
     <div class="row row-offset">
       <div class="col-md-3 col-md-offset-3 col-sm-3">
-        Nominations
+        <h5>Nominations</h5>
         <ul class="source connected">
+          <li>
+            <a href="http://www.google.com">Google</a>
+          </li>
+          <li>
+            <%= content_tag :a, id: 'google_link', href: 'http://www.google.com', target: '_blank' do %>
+              Google 2
+            <% end %>
+          </li>
+
           <% @restaurants.each do |r| %>
             <%= content_tag :li do %>
               <%= r.name %>
@@ -21,8 +34,8 @@
         </ul>
       </div>
       <div class="col-md-3 col-sm-3">
-        Selections
-        <ul class="target connected" />
+        <h5>Selections</h5>
+        <ul id="selections_list" class="target connected" />
       </div>
     </div>
     <div class="row row-offset">
@@ -32,3 +45,5 @@
     </div>
   </div>
 <% end %>
+
+<%= render partial: 'modal_informative' %>

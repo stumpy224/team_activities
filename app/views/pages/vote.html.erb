@@ -7,7 +7,7 @@
     </div>
     <div class="row row-offset">
       <div class="col-md-2 col-md-offset-3 col-sm-2">
-        <%= text_field_tag 'member_identifier', nil, placeholder: 'Enter your ACID', class: 'form-control' %>
+        <%= text_field_tag 'member_identifier', nil, placeholder: 'Enter your ACID', class: 'form-control', autofocus: true %>
       </div>
       <div class="col-md-2 col-md-offset-1 col-sm-2" id='member_name' style='margin-top:10px;'>
 
@@ -16,26 +16,17 @@
     <div class="row row-offset">
       <div class="col-md-3 col-md-offset-3 col-sm-3">
         <h5>Nominations</h5>
-        <ul class="source connected">
-          <li>
-            <a href="http://www.google.com">Google</a>
-          </li>
-          <li>
-            <%= content_tag :a, id: 'google_link', href: 'http://www.google.com', target: '_blank' do %>
-              Google 2
-            <% end %>
-          </li>
-
+        <ul id="restaurant_nominations" class="source connected">
           <% @restaurants.each do |r| %>
             <%= content_tag :li do %>
-              <%= r.name %>
+              <%= link_to r.name, r.url, target: '_blank' %>
             <% end %>
           <% end %>
         </ul>
       </div>
       <div class="col-md-3 col-sm-3">
         <h5>Selections</h5>
-        <ul id="selections_list" class="target connected" />
+        <ul id="restaurant_selections" class="target connected" />
       </div>
     </div>
     <div class="row row-offset">

@@ -21,7 +21,7 @@ body { padding-top: 70px; }
   margin-bottom: 1em;
 }
 
-ul.source {
+#restaurant_nominations {
   min-height: 50px;
   margin: 0px 25px 10px 0px;
   padding: 2px;
@@ -34,7 +34,7 @@ ul.source {
   list-style-position: inside;
 }
 
-ul.target {
+#restaurant_selections {
   min-height: 50px;
   margin: 0px 25px 10px 0px;
   padding: 2px;
@@ -47,15 +47,15 @@ ul.target {
   list-style-position: inside;
 }
 
-ul.source {
+#restaurant_nominations {
   border-color: #f8e0b1;
 }
 
-ul.target {
+#restaurant_selections {
   border-color: #add38d;
 }
 
-.source li, .target li {
+#restaurant_nominations li, #restaurant_selections li {
   margin: 5px;
   padding: 5px;
   -webkit-border-radius: 4px;
@@ -64,16 +64,14 @@ ul.target {
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
 }
 
-.source li {
+#restaurant_nominations li, #restaurant_nominations a {
   background-color: #fcf8e3;
-  border: 1px solid #fbeed5;
   color: #c09853;
   text-decoration: underline;
 }
 
-.target li {
+#restaurant_selections li, #restaurant_selections a {
   background-color: #ebf5e6;
-  border: 1px solid #d6e9c6;
   color: #468847;
   text-decoration: underline;
 }
@@ -88,12 +86,12 @@ ul.target {
   height: 40px;
 }
 
-.source .sortable-placeholder {
+#restaurant_nominations .sortable-placeholder {
   border: 2px dashed #f8e0b1 !important;
   background-color: #fefcf5 !important;
 }
 
-.target .sortable-placeholder {
+#restaurant_selections .sortable-placeholder {
   border: 2px dashed #add38d !important;
   background-color: #f6fbf4 !important;
 }

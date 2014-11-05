@@ -17,24 +17,24 @@
 //= require_tree .
 
 $(function() {
-  $( "#member_identifier" ).blur( function() {
-    var acid = $( '#member_identifier' ).val();
-    if ( acid.length > 0 ) {
+  $("#member_identifier").blur(function() {
+    var acid = $('#member_identifier').val();
+    if (acid.length > 0) {
       $.ajax ({
         url: '/' + acid,
         type: 'GET',
-        success: function( member_name ) {
-          $( '#member_name' ).text( member_name );
+        success: function(member_name) {
+          $('#member_name').text(member_name);
         }
       });
     }
   });
 
-  $( ".source, .target" ).sortable({
+  $(".source, .target").sortable({
     connectWith: ".connected"
   });
 
-  $( "#submit_votes" ).click( function() {
+  $("#submit_votes").click(function() {
     submitVotes();
   });
 });
@@ -42,16 +42,19 @@ $(function() {
 function submitVotes() {
   var items = [];
   var count = 0;
-  if ( $( 'ul.target li' ).length > 3 ) {
-    $( '#modal_informative_title h4' ).text( 'Only the top 3 restaurants will be counted.' );
-    $( '#modal_informative' ).modal( 'show' );
+  if ($('#restaurant_selections li').length > 3) {
+    $('#modal_informative_title h4').text('Only the top 3 restaurants will be counted.');
+    $('#modal_informative_button').text('Got It!');
+    $('#modal_informative').modal('show');
   }
 
-  $( "ul.target" ).children().each( function() {
+  $('#restaurant_selections').children().each( function() {
     count++;
-    var item = {restaurant: $( this ).text()};
+    var item = {restaurant: $(this).text()};
     if (count <= 3)
-      items.push( item );
+      items.push(item);
+
+    alert(items);
   });
   // var jsonData = JSON.stringify( items );
   // $.ajax ({

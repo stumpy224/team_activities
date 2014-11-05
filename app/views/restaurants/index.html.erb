@@ -4,17 +4,23 @@
   <thead>
     <tr>
       <th>Name</th>
+      <th>Url</th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
-    <% @restaurants.each do |restaurant| %>
+    <% @restaurants.each do |r| %>
       <tr>
-        <td style="padding-right:3em;"><%= restaurant.name %></td>
-        <td><%= link_to 'Show', restaurant %>&nbsp;|&nbsp;</td>
-        <td><%= link_to 'Edit', edit_restaurant_path(restaurant) %>&nbsp;|&nbsp;</td>
-        <td><%= link_to 'Destroy', restaurant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td style="padding-right:3em;"><%= r.name %></td>
+        <td style="padding-right:3em;">
+          <%= content_tag :a, href: r.url, target: '_blank' do %>
+            <%= r.url %>
+          <% end %>
+        </td>
+        <td><%= link_to 'Show', r %>&nbsp;|&nbsp;</td>
+        <td><%= link_to 'Edit', edit_restaurant_path(r) %>&nbsp;|&nbsp;</td>
+        <td><%= link_to 'Destroy', r, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

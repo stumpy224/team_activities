@@ -1,4 +1,4 @@
-<%= form_tag("/submit", remote: true) do %>
+<%= form_tag do %>
   <div class="form-group">
     <div class="row row-offset">
       <div class="col-md-2 col-md-offset-3 col-sm-2">
@@ -7,11 +7,9 @@
     </div>
     <div class="row row-offset">
       <div class="col-md-2 col-md-offset-3 col-sm-2">
-        <%= text_field_tag 'member_identifier', nil, placeholder: 'Enter your ACID', class: 'form-control', autofocus: true %>
+        <%= text_field :member, :identifier, placeholder: 'Enter your ACID', class: 'form-control', autofocus: true %>
       </div>
-      <div class="col-md-2 col-md-offset-1 col-sm-2" id='member_name' style='margin-top:10px;'>
-
-      </div>
+      <div class="col-md-2 col-md-offset-1 col-sm-2" id='member_name' style='margin-top:10px;'></div>
     </div>
     <div class="row row-offset">
       <div class="col-md-3 col-md-offset-3 col-sm-3">

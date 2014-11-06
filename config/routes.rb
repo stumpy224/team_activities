@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :years
+
+  resources :nominations
+
   resources :members
   resources :restaurants
 

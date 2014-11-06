@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141105024052) do
+ActiveRecord::Schema.define(version: 20141106042108) do
 
   create_table "members", force: true do |t|
     t.string   "identifier"
@@ -22,6 +22,13 @@ ActiveRecord::Schema.define(version: 20141105024052) do
   end
 
   add_index "members", ["identifier"], name: "index_members_on_identifier", unique: true
+
+  create_table "nominations", force: true do |t|
+    t.integer  "restaurant_id"
+    t.integer  "year_id",       limit: 255
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "restaurants", force: true do |t|
     t.string   "name"
@@ -34,6 +41,12 @@ ActiveRecord::Schema.define(version: 20141105024052) do
     t.integer  "member_id"
     t.integer  "nomination_id"
     t.integer  "points"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "years", force: true do |t|
+    t.string   "year"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

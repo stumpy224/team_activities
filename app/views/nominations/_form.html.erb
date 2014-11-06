@@ -1,0 +1,25 @@
+<%= form_for(@nomination) do |f| %>
+  <% if @nomination.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@nomination.errors.count, "error") %> prohibited this nomination from being saved:</h2>
+
+      <ul>
+      <% @nomination.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :restaurant_id %><br>
+    <%= select_tag :restaurant_id, options_from_collection_for_select(Restaurant.all, 'id', 'name'), include_blank: true %>
+  </div>
+  <div class="field">
+    <%= f.label :year_id %><br>
+    <%= select_tag :year_id, options_from_collection_for_select(Year.all, 'id', 'year') %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

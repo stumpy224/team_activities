@@ -13,12 +13,9 @@
 
   <div class="field">
     <%= f.label :restaurant_id %><br>
-    <%= select_tag :restaurant_id, options_from_collection_for_select(Restaurant.all, 'id', 'name'), include_blank: true %>
+    <%= f.select_tag "nomination[restaurant_id]", options_from_collection_for_select(Restaurant.where.not(id: Nomination.all.ids), "id", "name"), include_blank: true %>
   </div>
-  <div class="field">
-    <%= f.label :year_id %><br>
-    <%= select_tag :year_id, options_from_collection_for_select(Year.all, 'id', 'year') %>
-  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

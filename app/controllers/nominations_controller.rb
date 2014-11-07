@@ -69,6 +69,6 @@ class NominationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def nomination_params
-      params.require(:nomination).permit(:restaurant_id, :year_id)
+      params.require(:nomination).permit(:restaurant_id)
     end
 end

@@ -2,14 +2,14 @@
 
 <p>
   <strong>Restaurant:</strong>
-  <%= @nomination.restaurant_id %>
+  <%= Restaurant.find(@nomination.restaurant_id).name %>
 </p>
 
 <p>
   <strong>Year:</strong>
-  <%= @nomination.year_id %>
+  <%= @nomination.created_at.year %>
 </p>
 
 <%= link_to 'Edit', edit_nomination_path(@nomination) %> |
-<%= link_to 'New', new_nomination_path %>
+<%= link_to 'New', new_nomination_path %> |
 <%= link_to 'Show Nominations', nominations_path %>

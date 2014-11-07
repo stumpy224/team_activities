@@ -10,12 +10,12 @@
   </thead>
 
   <tbody>
-    <% @nominations.each do |nomination| %>
+    <% @nominations.each do |n| %>
       <tr>
-        <td style="padding-right:2em;"><%= nomination.restaurant_id %></td>
-        <td style="padding-right:2em;"><%= nomination.year_id %></td>
-        <td><%= link_to 'Edit', edit_nomination_path(nomination) %>&nbsp;|&nbsp;</td>
-        <td><%= link_to 'Destroy', nomination, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td style="padding-right:2em;"><%= Restaurant.find(n.restaurant_id).name %></td>
+        <td style="padding-right:2em;"><%= n.created_at.year %></td>
+        <td><%= link_to 'Edit', edit_nomination_path(n) %>&nbsp;|&nbsp;</td>
+        <td><%= link_to 'Destroy', n, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

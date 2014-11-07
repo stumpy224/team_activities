@@ -4,12 +4,16 @@
 		"selected_items":
 		[
 			[
-				"nomin",
-				"nominations"
+				"rest",
+				"restaurant"
 			],
 			[
-				"rest",
-				"restaurant_id"
+				"nomin",
+				"nomination"
+			],
+			[
+				"year",
+				"year_id"
 			],
 			[
 				"res",
@@ -122,10 +126,6 @@
 			[
 				"Parti",
 				"ParticipantSquare"
-			],
-			[
-				"year",
-				"yearQSValue"
 			],
 			[
 				"par",
@@ -372,82 +372,10 @@
 			}
 		},
 		{
-			"file": "app/controllers/restaurants_controller.rb",
+			"file": "db/seeds.rb",
 			"settings":
 			{
-				"buffer_size": 2018,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/views/restaurants/index.html.erb",
-			"settings":
-			{
-				"buffer_size": 761,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/views/nominations/show.html.erb",
-			"settings":
-			{
-				"buffer_size": 324,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/views/nominations/_form.html.erb",
-			"settings":
-			{
-				"buffer_size": 781,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/controllers/nominations_controller.rb",
-			"settings":
-			{
-				"buffer_size": 2031,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/models/nomination.rb",
-			"settings":
-			{
-				"buffer_size": 66,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/views/restaurants/_form.html.erb",
-			"settings":
-			{
-				"buffer_size": 616,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/views/layouts/application.html.erb",
-			"settings":
-			{
-				"buffer_size": 420,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/views/layouts/_header.html.erb",
-			"settings":
-			{
-				"buffer_size": 192,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/assets/stylesheets/application.css",
-			"settings":
-			{
-				"buffer_size": 2079,
+				"buffer_size": 1159,
 				"line_ending": "Unix"
 			}
 		},
@@ -460,70 +388,34 @@
 			}
 		},
 		{
-			"file": "app/views/pages/_modal_informative.html.erb",
-			"settings":
-			{
-				"buffer_size": 579,
-				"line_ending": "Unix",
-				"name": "_modal_informative.html.erb"
-			}
-		},
-		{
-			"file": "config/routes.rb",
-			"settings":
-			{
-				"buffer_size": 1898,
-				"line_ending": "Unix"
-			}
-		},
-		{
 			"file": "app/controllers/members_controller.rb",
 			"settings":
 			{
-				"buffer_size": 2107,
+				"buffer_size": 2218,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"contents": "class PagesController < ApplicationController\n  def vote\n    @restaurants = Restaurant.all.order( name: :asc )\n  end\n\n  def submit_votes\n    # params[:person][:name]\n    puts \"@ submit_votes\"\n  end\nend\n",
-			"file": "app/controllers/pages_controller.rb",
-			"file_size": 173,
-			"file_write_time": 130594630217065156,
+			"file": "app/views/nominations/_form.html.erb",
 			"settings":
 			{
-				"buffer_size": 202,
+				"buffer_size": 677,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "app/models/member.rb",
+			"file": "app/views/nominations/new.html.erb",
 			"settings":
 			{
-				"buffer_size": 145,
+				"buffer_size": 87,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "db/schema.rb",
+			"file": "app/views/nominations/show.html.erb",
 			"settings":
 			{
-				"buffer_size": 1731,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/views/years/show.html.erb",
-			"settings":
-			{
-				"buffer_size": 214,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/views/years/index.html.erb",
-			"settings":
-			{
-				"buffer_size": 504,
+				"buffer_size": 359,
 				"line_ending": "Unix"
 			}
 		},
@@ -531,15 +423,15 @@
 			"file": "app/views/nominations/index.html.erb",
 			"settings":
 			{
-				"buffer_size": 663,
+				"buffer_size": 648,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "app/models/year.rb",
+			"file": "app/controllers/nominations_controller.rb",
 			"settings":
 			{
-				"buffer_size": 61,
+				"buffer_size": 2021,
 				"line_ending": "Unix"
 			}
 		}
@@ -606,7 +498,6 @@
 		"/home/jstump/Development/projects/team_activities/app/views/nominations",
 		"/home/jstump/Development/projects/team_activities/app/views/pages",
 		"/home/jstump/Development/projects/team_activities/app/views/restaurants",
-		"/home/jstump/Development/projects/team_activities/app/views/years",
 		"/home/jstump/Development/projects/team_activities/config",
 		"/home/jstump/Development/projects/team_activities/db",
 		"/home/jstump/Development/projects/team_activities/db/migrate",
@@ -614,42 +505,57 @@
 	],
 	"file_history":
 	[
+		"/home/jstump/Development/projects/team_activities/app/views/members/_form.html.erb",
+		"/home/jstump/Development/projects/team_activities/app/views/nominations/show.html.erb",
+		"/home/jstump/Development/projects/team_activities/app/views/restaurants/index.html.erb",
+		"/home/jstump/Development/projects/team_activities/app/controllers/restaurants_controller.rb",
+		"/home/jstump/Development/projects/team_activities/app/views/nominations/_form.html.erb",
+		"/home/jstump/Development/projects/team_activities/app/controllers/nominations_controller.rb",
+		"/home/jstump/Development/projects/team_activities/app/models/restaurant.rb",
+		"/home/jstump/Development/projects/team_activities/app/models/nomination.rb",
+		"/home/jstump/Development/projects/team_activities/app/views/restaurants/_form.html.erb",
+		"/home/jstump/Development/projects/team_activities/app/views/layouts/application.html.erb",
+		"/home/jstump/Development/projects/team_activities/app/views/layouts/_header.html.erb",
+		"/home/jstump/Development/projects/team_activities/app/assets/stylesheets/application.css",
+		"/home/jstump/Development/projects/team_activities/app/assets/javascripts/application.js",
+		"/home/jstump/Development/projects/team_activities/app/views/pages/_modal_informative.html.erb",
+		"/home/jstump/Development/projects/team_activities/config/routes.rb",
+		"/home/jstump/Development/projects/team_activities/app/controllers/members_controller.rb",
+		"/home/jstump/Development/projects/team_activities/app/controllers/pages_controller.rb",
+		"/home/jstump/Development/projects/team_activities/app/models/member.rb",
+		"/home/jstump/Development/projects/team_activities/db/schema.rb",
+		"/home/jstump/Development/projects/team_activities/app/views/years/show.html.erb",
+		"/home/jstump/Development/projects/team_activities/app/views/years/index.html.erb",
+		"/home/jstump/Development/projects/team_activities/app/views/nominations/index.html.erb",
+		"/home/jstump/Development/projects/team_activities/app/models/year.rb",
+		"/home/jstump/Development/projects/team_activities/db/seeds.rb",
+		"/home/jstump/Development/projects/team_activities/db/migrate/20141029035718_create_restaurants.rb",
+		"/home/jstump/Development/projects/team_activities/db/migrate/20141030003608_create_members.rb",
+		"/home/jstump/Development/projects/team_activities/db/migrate/20141106032800_create_nominations.rb",
 		"/home/jstump/Development/projects/team_activities/db/migrate/20141106041820_rename_column_year_to_year_id.rb",
 		"/home/jstump/Development/projects/team_activities/db/migrate/20141106041519_change_year_format_in_nominations.rb",
 		"/home/jstump/Development/projects/team_activities/app/views/restaurants/show.html.erb",
 		"/home/jstump/Development/projects/team_activities/app/views/restaurants/show.json.jbuilder",
 		"/home/jstump/Development/projects/team_activities/app/views/restaurants/index.json.jbuilder",
-		"/home/jstump/Development/projects/team_activities/app/views/restaurants/index.html.erb",
 		"/home/jstump/Development/projects/team_activities/db/migrate/20141105024052_add_url_to_restaurants.rb",
 		"/home/jstump/Development/projects/team_activities/app/views/restaurants/edit.html.erb",
-		"/home/jstump/Development/projects/team_activities/app/views/restaurants/_form.html.erb",
 		"/home/jstump/Development/projects/team_activities/Gemfile",
 		"/home/jstump/Development/projects/team_activities/app/assets/javascripts/set_max_list_items.js",
-		"/home/jstump/Development/projects/team_activities/app/views/layouts/application.html.erb",
-		"/home/jstump/Development/projects/team_activities/app/views/layouts/_header.html.erb",
 		"/home/jstump/Development/projects/team_activities/app/controllers/application_controller.rb",
-		"/home/jstump/Development/projects/team_activities/app/controllers/pages_controller.rb",
-		"/home/jstump/Development/projects/team_activities/app/controllers/members_controller.rb",
 		"/home/jstump/Development/projects/team_activities/db/migrate/20141102213054_add_index_to_members_identifier.rb",
-		"/home/jstump/Development/projects/team_activities/app/assets/stylesheets/application.css",
-		"/home/jstump/Development/projects/team_activities/app/assets/javascripts/application.js",
 		"/home/jstump/Development/projects/team_activities/app/assets/stylesheets/custom.css.scss",
 		"/home/jstump/Development/projects/team_activities/app/assets/stylesheets/bootstrap_and_overrides.css.less",
 		"/home/jstump/Development/projects/team_activities/app/views/members/show.html.erb",
 		"/home/jstump/Development/projects/team_activities/app/views/pages/vote.html.erb",
-		"/home/jstump/Development/projects/team_activities/config/routes.rb",
 		"/home/jstump/Development/projects/team_activities/config/application.rb",
 		"/home/jstump/Development/projects/team_activities/app/views/members/index.html.erb",
-		"/home/jstump/Development/projects/team_activities/app/models/member.rb",
 		"/home/jstump/Development/projects/team_activities/app/views/members/new.html.erb",
 		"/home/jstump/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
 		"/home/jstump/Development/projects/team_activities/app/assets/stylesheets/application.css.scss",
 		"/home/jstump/Development/projects/team_activities/app/views/vote.html.erb",
-		"/home/jstump/Development/projects/team_activities/db/schema.rb",
 		"/home/jstump/Development/projects/team_activities/README.md",
 		"/home/jstump/Development/projects/team_activities/db/development.sqlite3",
 		"/home/jstump/Development/projects/team_activities/db/test.sqlite3",
-		"/home/jstump/Development/projects/team_activities/db/seeds.rb",
 		"/home/jstump/Development/projects/team_activities/Rakefile",
 		"/home/jstump/Development/projects/MarchMadness/app/controllers/pages_controller.rb",
 		"/home/jstump/.config/sublime-text-3/Packages/Default/Preferences.sublime-settings",
@@ -726,22 +632,7 @@
 		"/home/jstump/Development/projects/MarchMadness/app/helpers/pages_helper.rb",
 		"/home/jstump/Development/projects/MarchMadness/app/admin/square.rb",
 		"/home/jstump/Development/projects/MarchMadness/db/migrate/20140308140048_remove_year_and_participant_id_from_squares.rb",
-		"/home/jstump/Development/projects/MarchMadness/db/migrate/20140221025945_create_participants.rb",
-		"/home/jstump/Development/projects/MarchMadness/db/migrate/20140308140300_participant_squares.rb",
-		"/home/jstump/Development/projects/MarchMadness/app/assets/javascripts/results.js.coffee",
-		"/home/jstump/Development/projects/MarchMadness/app/models/admin_user.rb",
-		"/home/jstump/Development/projects/MarchMadness/app/assets/stylesheets/active_admin.css.scss",
-		"/home/jstump/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
-		"/home/jstump/Development/projects/MarchMadness/app/assets/stylesheets/custom.css.scss",
-		"/home/jstump/Development/projects/MarchMadness/app/assets/stylesheets/scaffolds.css.scss",
-		"/home/jstump/Development/projects/MarchMadness/app/models/result.rb",
-		"/home/jstump/Development/projects/MarchMadness/app/models/year.rb",
-		"/home/jstump/Development/projects/MarchMadness/spec/models/result_spec.rb",
-		"/home/jstump/Development/projects/MarchMadness/spec/models/year_spec.rb",
-		"/home/jstump/Development/projects/MarchMadness/app/views/pages/_test.html.erb",
-		"/home/jstump/Development/projects/MarchMadness/app/views/layouts/_footer.html.erb",
-		"/home/jstump/Development/projects/MarchMadness/app/controllers/results_controller.rb",
-		"/home/jstump/Development/projects/MarchMadness/app/views/results/_refresh.html.erb"
+		"/home/jstump/Development/projects/MarchMadness/db/migrate/20140221025945_create_participants.rb"
 	],
 	"find":
 	{
@@ -760,6 +651,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"nomination",
+			"author",
 			"restaurant",
 			"  \n",
 			"email",
@@ -935,7 +828,7 @@
 	"groups":
 	[
 		{
-			"selected": 5,
+			"selected": 3,
 			"sheets":
 			[
 				{
@@ -965,172 +858,24 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 9,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "app/controllers/restaurants_controller.rb",
+					"file": "db/seeds.rb",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2018,
+						"buffer_size": 1159,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2004,
-								2004
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Ruby/Ruby.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": -0.0,
-						"translation.y": 813.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 16,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "app/views/restaurants/index.html.erb",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 761,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								479,
-								479
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/ERB Autocomplete/erb.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "app/views/nominations/show.html.erb",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 324,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								324,
-								324
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/ERB Autocomplete/erb.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 10,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "app/views/nominations/_form.html.erb",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 781,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								705,
-								705
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/ERB Autocomplete/erb.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "app/controllers/nominations_controller.rb",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2031,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2017,
-								2017
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Ruby/Ruby.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": -0.0,
-						"translation.y": 663.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "app/models/nomination.rb",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 66,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								61,
-								61
+								673,
+								673
 							]
 						],
 						"settings":
@@ -1141,129 +886,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 8,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
-					"buffer": 7,
-					"file": "app/views/restaurants/_form.html.erb",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 616,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/ERB Autocomplete/erb.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 17,
-					"type": "text"
-				},
-				{
-					"buffer": 8,
-					"file": "app/views/layouts/application.html.erb",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 420,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								290,
-								290
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/ERB Autocomplete/erb.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 19,
-					"type": "text"
-				},
-				{
-					"buffer": 9,
-					"file": "app/views/layouts/_header.html.erb",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 192,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								97,
-								97
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/ERB Autocomplete/erb.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 21,
-					"type": "text"
-				},
-				{
-					"buffer": 10,
-					"file": "app/assets/stylesheets/application.css",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2079,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1600,
-								1600
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/CSS/CSS.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 829.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 15,
-					"type": "text"
-				},
-				{
-					"buffer": 11,
+					"buffer": 2,
 					"file": "app/assets/javascripts/application.js",
 					"semi_transient": false,
 					"settings":
@@ -1275,8 +902,8 @@
 						"selection":
 						[
 							[
-								1639,
-								1639
+								0,
+								0
 							]
 						],
 						"settings":
@@ -1285,89 +912,28 @@
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
-						"translation.x": 0.0,
-						"translation.y": 555.0,
+						"translation.x": -0.0,
+						"translation.y": 361.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 13,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
-					"buffer": 12,
-					"file": "app/views/pages/_modal_informative.html.erb",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 579,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								164,
-								164
-							]
-						],
-						"settings":
-						{
-							"auto_name": "_modal_informative.html.erb",
-							"syntax": "Packages/ERB Autocomplete/erb.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 14,
-					"type": "text"
-				},
-				{
-					"buffer": 13,
-					"file": "config/routes.rb",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1898,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								282,
-								282
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Ruby/Ruby.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 18,
-					"type": "text"
-				},
-				{
-					"buffer": 14,
+					"buffer": 3,
 					"file": "app/controllers/members_controller.rb",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2107,
+						"buffer_size": 2218,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1649,
-								1649
+								1678,
+								1728
 							]
 						],
 						"settings":
@@ -1377,141 +943,27 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 801.0,
+						"translation.y": 843.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 20,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
-					"buffer": 15,
-					"file": "app/controllers/pages_controller.rb",
+					"buffer": 4,
+					"file": "app/views/nominations/_form.html.erb",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 202,
+						"buffer_size": 677,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								165,
-								165
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Ruby/Ruby.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 12,
-					"type": "text"
-				},
-				{
-					"buffer": 16,
-					"file": "app/models/member.rb",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 145,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								103,
-								103
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Ruby/Ruby.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 11,
-					"type": "text"
-				},
-				{
-					"buffer": 17,
-					"file": "db/schema.rb",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1731,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Ruby/Ruby.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 292.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 7,
-					"type": "text"
-				},
-				{
-					"buffer": 18,
-					"file": "app/views/years/show.html.erb",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 214,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								173,
-								173
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/ERB Autocomplete/erb.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 19,
-					"file": "app/views/years/index.html.erb",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 504,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								182,
-								182
+								564,
+								564
 							]
 						],
 						"settings":
@@ -1528,20 +980,76 @@
 					"type": "text"
 				},
 				{
-					"buffer": 20,
-					"file": "app/views/nominations/index.html.erb",
+					"buffer": 5,
+					"file": "app/views/nominations/new.html.erb",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 663,
+						"buffer_size": 87,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								355,
-								355
+								87,
+								87
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/ERB Autocomplete/erb.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "app/views/nominations/show.html.erb",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 359,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								339,
+								339
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/ERB Autocomplete/erb.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "app/views/nominations/index.html.erb",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 648,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								197,
+								197
 							]
 						],
 						"settings":
@@ -1554,35 +1062,37 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 7,
 					"type": "text"
 				},
 				{
-					"buffer": 21,
-					"file": "app/models/year.rb",
+					"buffer": 8,
+					"file": "app/controllers/nominations_controller.rb",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 61,
+						"buffer_size": 2021,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								56,
-								56
+								2008,
+								2008
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Ruby/Ruby.tmLanguage"
+							"syntax": "Packages/Ruby/Ruby.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.x": -0.0,
+						"translation.y": 702.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 8,
 					"type": "text"
 				}
 			]

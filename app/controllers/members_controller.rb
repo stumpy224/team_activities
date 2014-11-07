@@ -62,7 +62,9 @@ class MembersController < ApplicationController
   end
 
   def get_member_by_identifier
-    @member = Member.find_by identifier: params[:acid]
+    # @member = Member.where(Member.arel_table[:identifier].matches('%' + params[:acid] + '%'))
+    
+    @member = Member.find_by identifier: params[:acid].upcase
     if @member.name.nil?
       
       # render nothing: true, status: :expectation_failed

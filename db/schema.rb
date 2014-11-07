@@ -25,28 +25,21 @@ ActiveRecord::Schema.define(version: 20141106042108) do
 
   create_table "nominations", force: true do |t|
     t.integer  "restaurant_id"
-    t.integer  "year_id",       limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "restaurants", force: true do |t|
     t.string   "name"
+    t.string   "url"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "url"
   end
 
   create_table "votes", force: true do |t|
     t.integer  "member_id"
     t.integer  "nomination_id"
     t.integer  "points"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "years", force: true do |t|
-    t.string   "year"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

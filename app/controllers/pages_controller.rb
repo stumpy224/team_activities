@@ -4,6 +4,7 @@ class PagesController < ApplicationController
   end
 
   def submit_votes
+    # params[:person][:name]
     puts "@ submit_votes"
   end
 end

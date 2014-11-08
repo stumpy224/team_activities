@@ -20,12 +20,15 @@ $(function() {
   $("#member_identifier").blur(function() {
     var acid = $('#member_identifier').val();
     if (acid.length > 0) {
-      $.ajax ({
-        url: '/' + acid,
-        type: 'GET',
-        success: function(member_name) {
-          $('#member_name').text(member_name);
-        }
+
+      $.getJSON('/' + acid, function( member ) {
+        var items = [];
+        $.each( member, function( key, val ) {
+          if (key == 'id')
+            $('#member_id').val(val);
+          if (key == 'name')
+            $('#member_name').text(val);
+        });
       });
     }
   });
@@ -34,36 +37,46 @@ $(function() {
     connectWith: ".connected"
   });
 
-  $("#submit_votes").click(function() {
+  $( "#voting_form" ).submit(function( event ) {
+    event.preventDefault();
     submitVotes();
   });
 });
 
 function submitVotes() {
-  var items = [];
-  var count = 0;
   if ($('#restaurant_selections li').length > 3) {
     $('#modal_informative_title h4').text('Only the top 3 restaurants will be counted.');
     $('#modal_informative_button').text('Got It!');
     $('#modal_informative').modal('show');
   }
 
+  var items = [];
+  var count = 0;
   $('#restaurant_selections').children().each( function() {
     count++;
     var item = {restaurant: $(this).text()};
     if (count <= 3)
       items.push(item);
-
-    alert(items);
   });
-  // var jsonData = JSON.stringify( items );
-  // $.ajax ({
-  //   url: "/submit",
-  //   type: "PUT",
-  //   data: jsonData,
-  //   dataType: "json",
-  //   contentType: "application/json; charset=utf-8",
-  //   success: function(){},
-  //   error: function(){}
-  // });
+
+  var data = {
+    member_id: $('#member_id').val(),
+    restaurants: items
+    // wants_dinner:
+  }
+
+  $.post('/submit_votes', data, function(isSuccessful) {
+    // $('#modal_wait').foundation('reveal', 'close');
+
+    // if (isSuccessful == 'true') {
+    //   $('#user_alert span').text('Contact preferences have been updated.');
+    //   $('#user_alert').addClass('success').removeClass('alert');
+    // }
+    // else {
+    //   $('#user_alert span').text('Contact preferences could not be updated.');
+    //   $('#user_alert').addClass('alert').removeClass('success');
+    // }
+
+    // $('#user_alert').css('display', 'inline-block');
+  });
 };

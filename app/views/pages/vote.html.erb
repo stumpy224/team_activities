@@ -16,9 +16,10 @@
       <div class="col-md-3 col-md-offset-3 col-sm-3">
         <h5>Nominations</h5>
         <ul id="restaurant_nominations" class="source connected">
-          <% @restaurants.each do |r| %>
+          <% @nominations.each do |n| %>
+            <% @r = Restaurant.find(n.restaurant_id) %>
             <%= content_tag :li do %>
-              <%= link_to r.name, r.url, target: '_blank' %>
+              <%= link_to @r.name, @r.url, target: '_blank', data: {'nomination-id' => "#{n.id}"} %>
             <% end %>
           <% end %>
         </ul>

@@ -39,29 +39,37 @@ $(function() {
 
   $( "#voting_form" ).submit(function( event ) {
     event.preventDefault();
-    submitVotes();
+    verifyMemberIsFound();
   });
 });
 
-function submitVotes() {
-  if ($('#restaurant_selections li').length > 3) {
-    $('#modal_informative_title h4').text('Only the top 3 restaurants will be counted.');
-    $('#modal_informative_button').text('Got It!');
-    $('#modal_informative').modal('show');
-  }
+function verifyMemberIsFound() {
+  if($('#member_id').val())
+    submitVotes();
+  else
+    showInvalidAcidModal();
+};
 
-  var items = [];
+function showInvalidAcidModal() {
+  showInformativeModal('Please enter your ACID.', 'Close');
+}
+
+function submitVotes() {
+  if ($('#restaurant_selections li').length > 3)
+    showInformativeModal('Only the top 3 restaurants will be counted.', 'Got It!');
+
+  var selections = [];
   var count = 0;
-  $('#restaurant_selections').children().each( function() {
+  $('#restaurant_selections li a').each( function() {
     count++;
-    var item = {restaurant: $(this).text()};
+    var selection = $(this).attr('data-nomination-id');
     if (count <= 3)
-      items.push(item);
+      selections.push(selection);
   });
 
   var data = {
     member_id: $('#member_id').val(),
-    restaurants: items
+    restaurant_selections: selections
     // wants_dinner:
   }
 
@@ -79,4 +87,10 @@ function submitVotes() {
 
     // $('#user_alert').css('display', 'inline-block');
   });
-};
+}
+
+function showInformativeModal(message, buttonText) {
+  $('#modal_informative_title h4').text(message);
+  $('#modal_informative_button').text(buttonText);
+  $('#modal_informative').modal('show'); 
+}

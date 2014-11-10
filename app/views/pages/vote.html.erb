@@ -16,7 +16,7 @@
       <div class="col-md-3 col-md-offset-3 col-sm-3">
         <h5>Nominations</h5>
         <ul id="restaurant_nominations" class="source connected">
-          <% @nominations.each do |n| %>
+          <% Vote.get_nominations.each do |n| %>
             <% @r = Restaurant.find(n.restaurant_id) %>
             <%= content_tag :li do %>
               <%= link_to @r.name, @r.url, target: '_blank', data: {'nomination-id' => "#{n.id}"} %>
@@ -38,3 +38,4 @@
 </form>
 
 <%= render partial: 'modal_informative' %>
+<%= render partial: 'modal_member_already_voted' %>

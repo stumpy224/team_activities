@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   root 'pages#vote'
   get ':acid', to: 'members#get_member_by_identifier'
   post 'submit_votes', to: 'pages#submit_votes'
+  get 'results', to: 'pages#results'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

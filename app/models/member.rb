@@ -5,4 +5,8 @@ class Member < ActiveRecord::Base
   def active?
     !!@active
   end
+
+  def self.get_member_by_identifier(acid)
+    @member = Member.find_by identifier: acid.upcase
+  end
 end

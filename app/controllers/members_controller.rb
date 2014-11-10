@@ -62,9 +62,9 @@ class MembersController < ApplicationController
   end
 
   def get_member_by_identifier
-    @member = Member.find_by identifier: params[:acid].upcase
+    @member = Member.get_member_by_identifier(params[:acid])
     if @member.name.nil?
-      # render nothing: true, status: :expectation_failed
+      render nothing: true
     else
       render json: @member
     end

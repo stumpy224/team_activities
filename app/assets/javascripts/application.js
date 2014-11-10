@@ -37,9 +37,13 @@ $(function() {
     connectWith: ".connected"
   });
 
-  $( "#voting_form" ).submit(function( event ) {
+  $("#voting_form").submit(function(event) {
     event.preventDefault();
     verifyMemberIsFound();
+  });
+
+  $("#close_member_already_voted_modal").click(function() {
+    window.location = "/";
   });
 });
 
@@ -92,5 +96,9 @@ function submitVotes() {
 function showInformativeModal(message, buttonText) {
   $('#modal_informative_title h4').text(message);
   $('#modal_informative_button').text(buttonText);
-  $('#modal_informative').modal('show'); 
+  $('#modal_informative').modal('show');
+}
+
+function showMemberAlreadyVotedModal() {
+ $('#modal_member_already_voted').modal('show'); 
 }

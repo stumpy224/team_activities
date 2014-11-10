@@ -4,9 +4,9 @@ Rails.application.routes.draw do
   resources :restaurants
 
   root 'pages#vote'
-  get ':acid', to: 'members#get_member_by_identifier'
-  post 'submit_votes', to: 'pages#submit_votes'
+  get 'get_member/:acid', to: 'members#get_member_by_identifier'
   get 'results', to: 'pages#results'
+  post 'submit_votes', to: 'pages#submit_votes'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

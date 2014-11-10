@@ -20,10 +20,8 @@ $(function() {
   $("#member_identifier").blur(function() {
     var acid = $('#member_identifier').val();
     if (acid.length > 0) {
-
-      $.getJSON('/' + acid, function( member ) {
-        var items = [];
-        $.each( member, function( key, val ) {
+      $.getJSON('/get_member/' + acid, function(member) {
+        $.each(member, function(key, val) {
           if (key == 'id')
             $('#member_id').val(val);
           if (key == 'name')
@@ -45,6 +43,18 @@ $(function() {
   $("#close_member_already_voted_modal").click(function() {
     window.location = "/";
   });
+
+  // $("#nav_link_to_vote").addClass('active');
+
+  // $("#nav_link_to_vote").click(function() {
+  //   $("#nav_link_to_vote").addClass('active');
+  //   $("#nav_link_to_results").removeClass('active');
+  // });
+
+  // $("#nav_link_to_results").click(function() {
+  //   $("#nav_link_to_results").addClass('active');
+  //   $("#nav_link_to_vote").removeClass('active');
+  // });
 });
 
 function verifyMemberIsFound() {
@@ -56,6 +66,7 @@ function verifyMemberIsFound() {
 
 function showInvalidAcidModal() {
   showInformativeModal('Please enter your ACID.', 'Close');
+  $('#member_id').focus();
 }
 
 function submitVotes() {

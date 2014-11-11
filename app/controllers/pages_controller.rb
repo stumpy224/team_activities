@@ -1,6 +1,7 @@
 class PagesController < ApplicationController
     def results
-        puts "HERE"
+        @nominations = Nomination.all
+        @votes = Vote.get_results
     end
 
   def submit_votes
@@ -9,15 +10,6 @@ class PagesController < ApplicationController
     member_id = params.delete('member_id')
 
     if Vote.has_member_already_voted(member_id)
-        # respond_to do |format|
-        #   format.js {render inline: "location.reload();" }
-        # end
-        
-        # flash.now[:danger] = 'A team member can only vote once.'
-        # render js: "alert('" + root_url + "');"
-      # redirect_to root_url
-      # render partial: 'modal_member_already_voted'
-
       respond_to do |format|
         format.js { render js: "showMemberAlreadyVotedModal();" }
       end
@@ -44,7 +36,7 @@ class PagesController < ApplicationController
             vote += 1
         end
 
-        render :results
+        redirect_to :results
     end
   end
 end

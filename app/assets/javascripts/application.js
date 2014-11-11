@@ -29,6 +29,7 @@ $(function() {
         });
       });
     }
+    $("#submit_votes").focus();
   });
 
   $(".source, .target").sortable({
@@ -43,18 +44,6 @@ $(function() {
   $("#close_member_already_voted_modal").click(function() {
     window.location = "/";
   });
-
-  // $("#nav_link_to_vote").addClass('active');
-
-  // $("#nav_link_to_vote").click(function() {
-  //   $("#nav_link_to_vote").addClass('active');
-  //   $("#nav_link_to_results").removeClass('active');
-  // });
-
-  // $("#nav_link_to_results").click(function() {
-  //   $("#nav_link_to_results").addClass('active');
-  //   $("#nav_link_to_vote").removeClass('active');
-  // });
 });
 
 function verifyMemberIsFound() {
@@ -89,18 +78,7 @@ function submitVotes() {
   }
 
   $.post('/submit_votes', data, function(isSuccessful) {
-    // $('#modal_wait').foundation('reveal', 'close');
 
-    // if (isSuccessful == 'true') {
-    //   $('#user_alert span').text('Contact preferences have been updated.');
-    //   $('#user_alert').addClass('success').removeClass('alert');
-    // }
-    // else {
-    //   $('#user_alert span').text('Contact preferences could not be updated.');
-    //   $('#user_alert').addClass('alert').removeClass('success');
-    // }
-
-    // $('#user_alert').css('display', 'inline-block');
   });
 }
 

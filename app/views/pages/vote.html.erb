@@ -16,7 +16,7 @@
       <div class="col-md-3 col-md-offset-3 col-sm-3">
         <h5>Nominations</h5>
         <ul id="restaurant_nominations" class="source connected">
-          <% Vote.get_nominations.each do |n| %>
+          <% Nomination.get_nominations.each do |n| %>
             <% @r = Restaurant.find(n.restaurant_id) %>
             <%= content_tag :li do %>
               <%= link_to @r.name, @r.url, target: '_blank', data: {'nomination-id' => "#{n.id}"} %>
@@ -31,7 +31,7 @@
     </div>
     <div class="row row-offset">
       <div class="col-md-2 col-md-offset-3 col-sm-2">
-        <%= submit_tag 'Submit', id: 'submit_votes', class: 'btn btn-primary', tabindex: 3 %>
+        <%= submit_tag 'Submit', id: 'submit_votes', class: 'btn btn-primary' %>
       </div>
     </div>
   </div>

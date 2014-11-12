@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
     def results
+        @meals = Meal.all
         @nominations = Nomination.all
         @votes = Vote.get_results
     end
@@ -8,6 +9,7 @@ class PagesController < ApplicationController
     params.delete('action')
     params.delete('controller')
     member_id = params.delete('member_id')
+    dinner_indicator = params.delete('dinner_indicator')
 
     if Vote.has_member_already_voted(member_id)
       respond_to do |format|
@@ -35,6 +37,11 @@ class PagesController < ApplicationController
 
             vote += 1
         end
+
+        Meal.create(
+            member_id: member_id,
+            dinner_indicator: dinner_indicator
+        )
 
         redirect_to :results
     end

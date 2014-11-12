@@ -73,8 +73,8 @@ function submitVotes() {
 
   var data = {
     member_id: $('#member_id').val(),
-    restaurant_selections: selections
-    // wants_dinner:
+    restaurant_selections: selections,
+    dinner_indicator: $('#dinner_radio').is(':checked')
   }
 
   $.post('/submit_votes', data, function(isSuccessful) {

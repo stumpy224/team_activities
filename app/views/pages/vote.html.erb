@@ -1,36 +1,66 @@
 <form id="voting_form" action="/submit_votes">
   <div class="form-group">
-    <div class="row row-offset">
-      <div class="col-md-2 col-md-offset-3 col-sm-2">
-        <h4 style="margin-bottom:0px;">Who's voting?</h4>
+    <div class="row center-block">
+      <div class="col-md-10 col-xs-12 center-block">
+        <div class="col-md-5 col-xs-6 center-block">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">Who's voting?</h3>
+            </div>
+            <div class="panel-body">
+              <div class="col-md-6 col-xs-6" style="float:left;">
+                <%= text_field :member, :identifier, placeholder: 'Enter your ACID', class: 'form-control', autofocus: true %>
+                <%= hidden_field_tag :member_id %>
+              </div>
+              <div class="col-md-6 col-xs-6" id='member_name' style='float:right; margin-top:10px; text-align:right;'></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-5 col-xs-6 center-block">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">Choose your meal option</h3>
+            </div>
+            <div class="panel-body" style="text-align:center;">
+              <label class="radio-inline">
+                <input type="radio" name="meal_options" id="lunch_radio" value="lunch"> Lunch
+              </label>
+              <label class="radio-inline">
+                <input type="radio" name="meal_options" id="dinner_radio" value="dinner"> Dinner
+              </label>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="row row-offset">
-      <div class="col-md-2 col-md-offset-3 col-sm-2">
-        <%= text_field :member, :identifier, placeholder: 'Enter your ACID', class: 'form-control', autofocus: true %>
-        <%= hidden_field_tag :member_id %>
+    <div class="row center-block">
+      <div class="col-md-6 col-xs-10 center-block">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Choose your top 3 restaurants</h3>
+          </div>
+          <div class="panel-body">
+            <div class="col-md-6 col-xs-6">
+              <h5>Nominations</h5>
+              <ul id="restaurant_nominations" class="source connected">
+                <% Nomination.get_nominations.each do |n| %>
+                  <% @r = Restaurant.find(n.restaurant_id) %>
+                  <%= content_tag :li do %>
+                    <%= link_to @r.name, @r.url, target: '_blank', data: {'nomination-id' => "#{n.id}"} %>
+                  <% end %>
+                <% end %>
+              </ul>
+            </div>
+            <div class="col-md-6 col-xs-6">
+              <h5>Selections</h5>
+              <ul id="restaurant_selections" class="target connected" />
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="col-md-2 col-md-offset-1 col-sm-2" id='member_name' style='margin-top:10px;'></div>
     </div>
-    <div class="row row-offset">
-      <div class="col-md-3 col-md-offset-3 col-sm-3">
-        <h5>Nominations</h5>
-        <ul id="restaurant_nominations" class="source connected">
-          <% Nomination.get_nominations.each do |n| %>
-            <% @r = Restaurant.find(n.restaurant_id) %>
-            <%= content_tag :li do %>
-              <%= link_to @r.name, @r.url, target: '_blank', data: {'nomination-id' => "#{n.id}"} %>
-            <% end %>
-          <% end %>
-        </ul>
-      </div>
-      <div class="col-md-3 col-sm-3">
-        <h5>Selections</h5>
-        <ul id="restaurant_selections" class="target connected" />
-      </div>
-    </div>
-    <div class="row row-offset">
-      <div class="col-md-2 col-md-offset-3 col-sm-2">
+    <div class="row">
+      <div class="col-md-1 col-xs-1 center-block">
         <%= submit_tag 'Submit', id: 'submit_votes', class: 'btn btn-primary' %>
       </div>
     </div>

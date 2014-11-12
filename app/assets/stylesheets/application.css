@@ -95,3 +95,7 @@ body { padding-top: 70px; }
   border: 2px dashed #add38d !important;
   background-color: #f6fbf4 !important;
 }
+
+.center-block {
+  float: none !important;
+}

@@ -1,27 +1,75 @@
-<div class="col-md-4 col-md-offset-4 col-sm-4">
-  <% if Vote.any? %>
-    <table class="table table-bordered table-striped">
-      <thead>
-        <tr>
-          <th style="text-align:center;" width="10%">Rank</th>
-          <th>Restaurant</th>
-          <th style="text-align:right;" width="17%">Points</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% rank = 0 %>
-        <% @votes.each do |v| %>
-          <% @nomination = Nomination.find(v.nomination_id) %>
-          <% @restaurant = Restaurant.find(@nomination.restaurant_id) %>
-          <tr>
-            <td style="text-align:center;"><%= rank += 1 %></td>
-            <td style="text-decoration:underline;"><%= link_to @restaurant.name, @restaurant.url, target: '_blank' %></td>
-            <td style="text-align:right;"><%= v.points %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-  <% else %>
-    <h4 style="text-align:center;">No one has voted.</h3>
-  <% end %>
-</div>
+<% if Vote.any? %>
+  <div class="col-md-3 col-sm-3 center-block">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Meal Type Results</h3>
+      </div>
+      <div class="panel-body" style="padding:0;">
+        <table class="table" style="margin-bottom:0;">
+          <thead>
+            <tr>
+              <th>Meal Option</th>
+              <th style="text-align:right;" width="17%">Votes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% dinner_count = Meal.get_count_in_favor_of_dinner %>
+            <% lunch_count = Meal.get_count_in_favor_of_lunch %>
+
+            <% if lunch_count > dinner_count %>
+              <tr>
+                <td>Lunch</td>
+                <td style="text-align:right;"><%= lunch_count %></td>
+              </tr>
+              <tr>
+                <td>Dinner</td>
+                <td style="text-align:right;"><%= dinner_count %></td>
+              </tr>
+            <% else %>
+              <tr>
+                <td>Dinner</td>
+                <td style="text-align:right;"><%= dinner_count %></td>
+              </tr>
+              <tr>
+                <td>Lunch</td>
+                <td style="text-align:right;"><%= lunch_count %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4 col-sm-4 center-block">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Restaurant Results</h3>
+      </div>
+      <div class="panel-body" style="padding:0;">
+        <table class="table table-bordered" style="margin-bottom:0;">
+          <thead>
+            <tr>
+              <th style="text-align:center;" width="10%">Rank</th>
+              <th>Restaurant</th>
+              <th style="text-align:right;" width="17%">Points</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% rank = 0 %>
+            <% @votes.each do |v| %>
+              <% @nomination = Nomination.find(v.nomination_id) %>
+              <% @restaurant = Restaurant.find(@nomination.restaurant_id) %>
+              <tr>
+                <td style="text-align:center;"><%= rank += 1 %></td>
+                <td style="text-decoration:underline;"><%= link_to @restaurant.name, @restaurant.url, target: '_blank' %></td>
+                <td style="text-align:right;"><%= v.points %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+<% else %>
+  <h4 style="text-align:center;">No one has voted.</h3>
+<% end %>

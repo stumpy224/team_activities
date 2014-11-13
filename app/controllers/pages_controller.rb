@@ -42,8 +42,6 @@ class PagesController < ApplicationController
             member_id: member_id,
             dinner_indicator: dinner_indicator
         )
-
-        redirect_to :results
     end
   end
 end

@@ -24,21 +24,22 @@ $(function() {
         $.each(member, function(key, val) {
           if (key == 'id')
             $('#member_id').val(val);
-          if (key == 'name')
-            $('#member_name').text(val);
+          // if (key == 'name')
+          //   $('#member_name').text(val);
         });
       });
     }
-    $("#submit_votes").focus();
+    // $("#submit_votes").focus();
   });
 
   $(".source, .target").sortable({
     connectWith: ".connected"
   });
 
-  $("#voting_form").submit(function(event) {
-    event.preventDefault();
-    verifyMemberIsFound();
+  $("#voting_form").submit(function(e) {
+    e.preventDefault();
+    if (isMemberFound() && isMealTypeSelected())
+      submitVotes();
   });
 
   $("#close_member_already_voted_modal").click(function() {
@@ -46,40 +47,48 @@ $(function() {
   });
 });
 
-function verifyMemberIsFound() {
+function isMemberFound() {
   if($('#member_id').val())
-    submitVotes();
-  else
-    showInvalidAcidModal();
+    return true
+  else {
+    showInformativeModal('Please enter your ACID.', 'Close');
+    return false;
+  }
 };
 
-function showInvalidAcidModal() {
-  showInformativeModal('Please enter your ACID.', 'Close');
-  $('#member_id').focus();
+function isMealTypeSelected() {
+  if ($("#lunch_radio").is(":checked") || $("#dinner_radio").is(":checked"))
+    return true;
+  else {
+    showInformativeModal('Please select a meal option.', 'Close');
+    return false;
+  }
 }
 
 function submitVotes() {
-  if ($('#restaurant_selections li').length > 3)
-    showInformativeModal('Only the top 3 restaurants will be counted.', 'Got It!');
+  window.location = '/results';
+  // if ($('#restaurant_selections li').length > 3)
+  //   showInformativeModal('Only the top 3 restaurants will be counted.', 'Got It!');
 
-  var selections = [];
-  var count = 0;
-  $('#restaurant_selections li a').each( function() {
-    count++;
-    var selection = $(this).attr('data-nomination-id');
-    if (count <= 3)
-      selections.push(selection);
-  });
+  // var selections = [];
+  // var count = 0;
+  // $('#restaurant_selections li a').each( function() {
+  //   count++;
+  //   var selection = $(this).attr('data-nomination-id');
+  //   if (count <= 3)
+  //     selections.push(selection);
+  // });
 
-  var data = {
-    member_id: $('#member_id').val(),
-    restaurant_selections: selections,
-    dinner_indicator: $('#dinner_radio').is(':checked')
-  }
+  // var data = {
+  //   member_id: $('#member_id').val(),
+  //   restaurant_selections: selections,
+  //   dinner_indicator: $('#dinner_radio').is(':checked')
+  // }
 
-  $.post('/submit_votes', data, function(isSuccessful) {
-
-  });
+  // $.post('/submit_votes', data, function(isSuccessful) {
+  //   window.location = '/results';
+  // });
+  return true;
 }
 
 function showInformativeModal(message, buttonText) {

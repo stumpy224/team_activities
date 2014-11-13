@@ -23,7 +23,7 @@ body { padding-top: 70px; }
 
 #restaurant_nominations {
   min-height: 50px;
-  margin: 0px 25px 10px 0px;
+  /*margin: 0px 25px 10px 0px;*/
   padding: 2px;
   border-width: 1px;
   border-style: solid;
@@ -36,7 +36,7 @@ body { padding-top: 70px; }
 
 #restaurant_selections {
   min-height: 50px;
-  margin: 0px 25px 10px 0px;
+  /*margin: 0px 25px 10px 0px;*/
   padding: 2px;
   border-width: 1px;
   border-style: solid;

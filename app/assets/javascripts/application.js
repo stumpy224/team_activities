@@ -16,7 +16,15 @@
 //= require turbolinks
 //= require_tree .
 
+$(document).on("page:change", function() {
+  return init();
+});
+
 $(function() {
+  init();
+});
+
+function init() {
   $("#member_identifier").blur(function() {
     var acid = $('#member_identifier').val();
     if (acid.length > 0) {
@@ -29,7 +37,6 @@ $(function() {
         });
       });
     }
-    // $("#submit_votes").focus();
   });
 
   $(".source, .target").sortable({
@@ -38,20 +45,33 @@ $(function() {
 
   $("#voting_form").submit(function(e) {
     e.preventDefault();
-    if (isMemberFound() && isMealTypeSelected())
-      submitVotes();
+    e.stopImmediatePropagation();
+    submitFormAfterValidation();
   });
 
   $("#close_member_already_voted_modal").click(function() {
-    window.location = "/";
+    location.reload();
   });
-});
+
+  registerEnterActions();
+}
+
+function registerEnterActions() {
+  registerEnterKeyForMemberIdentifier();
+  registerEnterKeyForLunchRadio();
+  registerEnterKeyForDinnerRadio();
+}
+
+function submitFormAfterValidation() {
+  if (isMemberFound() && isMealTypeSelected())
+    submitVotes();
+}
 
 function isMemberFound() {
   if($('#member_id').val())
     return true
   else {
-    showInformativeModal('Please enter your ACID.', 'Close');
+    showInformativeModal('Please enter your E-Business ACID.', 'Close');
     return false;
   }
 };
@@ -66,29 +86,29 @@ function isMealTypeSelected() {
 }
 
 function submitVotes() {
-  window.location = '/results';
-  // if ($('#restaurant_selections li').length > 3)
-  //   showInformativeModal('Only the top 3 restaurants will be counted.', 'Got It!');
+  if ($('#restaurant_selections li').length > 3)
+    showInformativeModal('Only the top 3 restaurants will be counted.', 'Got It!');
+  else if ($('#restaurant_selections li').length == 0) {
+    showInformativeModal('Please select at least one restaurant.', 'Close');
+    return false;
+  }
 
-  // var selections = [];
-  // var count = 0;
-  // $('#restaurant_selections li a').each( function() {
-  //   count++;
-  //   var selection = $(this).attr('data-nomination-id');
-  //   if (count <= 3)
-  //     selections.push(selection);
-  // });
+  var selections = [];
+  var count = 0;
+  $('#restaurant_selections li a').each( function() {
+    count++;
+    var selection = $(this).attr('data-nomination-id');
+    if (count <= 3)
+      selections.push(selection);
+  });
 
-  // var data = {
-  //   member_id: $('#member_id').val(),
-  //   restaurant_selections: selections,
-  //   dinner_indicator: $('#dinner_radio').is(':checked')
-  // }
+  var data = {
+    member_id: $('#member_id').val(),
+    restaurant_selections: selections,
+    dinner_indicator: $('#dinner_radio').is(':checked')
+  }
 
-  // $.post('/submit_votes', data, function(isSuccessful) {
-  //   window.location = '/results';
-  // });
-  return true;
+  $.post('/submit_votes', data, function() {});
 }
 
 function showInformativeModal(message, buttonText) {
@@ -99,4 +119,34 @@ function showInformativeModal(message, buttonText) {
 
 function showMemberAlreadyVotedModal() {
  $('#modal_member_already_voted').modal('show'); 
+}
+
+function registerEnterKeyForMemberIdentifier() {
+  $("#member_identifier").keypress(function(e) {
+    if (e.which == 13) {
+      e.preventDefault();
+      e.stopImmediatePropagation();
+      submitFormAfterValidation();
+    }
+  });
+}
+
+function registerEnterKeyForLunchRadio() {
+  $("#lunch_radio").keypress(function(e) {
+    if (e.which == 13) {
+      e.preventDefault();
+      e.stopImmediatePropagation();
+      submitFormAfterValidation();
+    }
+  });
+}
+
+function registerEnterKeyForDinnerRadio() {
+  $("#dinner_radio").keypress(function(e) {
+    if (e.which == 13) {
+      e.preventDefault();
+      e.stopImmediatePropagation();
+      submitFormAfterValidation();
+    }
+  });
 }

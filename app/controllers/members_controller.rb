@@ -64,7 +64,7 @@ class MembersController < ApplicationController
   def get_member_by_identifier
     @member = Member.get_member_by_identifier(params[:acid])
     if @member.nil?
-      render nothing: true
+      render js: "showInformativeModal('Please enter your E-Business ACID.', 'Close');"
     else
       render json: @member
     end

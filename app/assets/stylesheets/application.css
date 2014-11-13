@@ -99,3 +99,7 @@ body { padding-top: 70px; }
 .center-block {
   float: none !important;
 }
+
+.navbar-nav {
+  float: right !important;
+}

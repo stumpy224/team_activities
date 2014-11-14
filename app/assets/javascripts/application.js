@@ -80,7 +80,7 @@ function isMealTypeSelected() {
 
 function submitVotes() {
   if ($('#restaurant_selections li').length > 3) {
-    showInformativeModal('Please remove one restaurant from the Selections list.', 'Close');
+    showInformativeModal('Only three restaurants can be selected.', 'Close');
     return false;
   }
   else if ($('#restaurant_selections li').length == 0) {

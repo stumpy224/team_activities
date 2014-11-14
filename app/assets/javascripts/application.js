@@ -53,14 +53,6 @@ function init() {
   $("#close_member_already_voted_modal").click(function() {
     location.reload();
   });
-
-  // registerEnterActions();
-}
-
-function registerEnterActions() {
-  registerEnterKeyForMemberIdentifier();
-  registerEnterKeyForLunchRadio();
-  registerEnterKeyForDinnerRadio();
 }
 
 function submitFormAfterValidation() {
@@ -122,36 +114,6 @@ function showInformativeModal(message, buttonText) {
 
 function showMemberAlreadyVotedModal() {
  $('#modal_member_already_voted').modal('show'); 
-}
-
-function registerEnterKeyForMemberIdentifier() {
-  $("#member_identifier").keypress(function(e) {
-    if (e.which == 13) {
-      e.preventDefault();
-      e.stopImmediatePropagation();
-      submitFormAfterValidation();
-    }
-  });
-}
-
-function registerEnterKeyForLunchRadio() {
-  $("#lunch_radio").keypress(function(e) {
-    if (e.which == 13) {
-      e.preventDefault();
-      e.stopImmediatePropagation();
-      submitFormAfterValidation();
-    }
-  });
-}
-
-function registerEnterKeyForDinnerRadio() {
-  $("#dinner_radio").keypress(function(e) {
-    if (e.which == 13) {
-      e.preventDefault();
-      e.stopImmediatePropagation();
-      submitFormAfterValidation();
-    }
-  });
 }
 
 $(document).keypress(function(e) {

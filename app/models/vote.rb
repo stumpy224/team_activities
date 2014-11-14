@@ -9,7 +9,7 @@ class Vote < ActiveRecord::Base
 
   def self.get_results
     @results = Vote.select("nomination_id, sum(points) as points").group("nomination_id")
-      .having("created_at between ? and ?", Time.new(Time.now.year), Time.new(Time.now.year + 1))
+      .having("date(created_at) between ? and ?", Time.new(Time.now.year), Time.new(Time.now.year + 1))
       .order("points DESC")
   end
 end

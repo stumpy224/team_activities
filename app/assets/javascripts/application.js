@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require turbolinks
+//= require ie-placeholder-shim
 //= require_tree .
 
 $(document).on("page:change", function() {
@@ -53,7 +54,7 @@ function init() {
     location.reload();
   });
 
-  registerEnterActions();
+  // registerEnterActions();
 }
 
 function registerEnterActions() {
@@ -86,8 +87,10 @@ function isMealTypeSelected() {
 }
 
 function submitVotes() {
-  if ($('#restaurant_selections li').length > 3)
-    showInformativeModal('Only the top 3 restaurants will be counted.', 'Got It!');
+  if ($('#restaurant_selections li').length > 3) {
+    showInformativeModal('Please remove one restaurant from the Selections list.', 'Close');
+    return false;
+  }
   else if ($('#restaurant_selections li').length == 0) {
     showInformativeModal('Please select at least one restaurant.', 'Close');
     return false;
@@ -150,3 +153,11 @@ function registerEnterKeyForDinnerRadio() {
     }
   });
 }
+
+$(document).keypress(function(e) {
+  if (e.which == 13) {
+    e.preventDefault();
+    e.stopImmediatePropagation();
+    submitFormAfterValidation();
+  }
+});

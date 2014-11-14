@@ -12,7 +12,7 @@ class PagesController < ApplicationController
     dinner_indicator = params.delete('dinner_indicator')
 
     if Vote.has_member_already_voted(member_id)
-      render js: "showMemberAlreadyVotedModal();"
+      render js: "showInformativeModal('A team member can only vote once.', 'Close');"
     else
       restaurants = Array.new
       restaurants = params[:restaurant_selections]

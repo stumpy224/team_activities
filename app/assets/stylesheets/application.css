@@ -70,8 +70,8 @@ body { padding-top: 70px; }
 }
 
 .sortable-dragging {
-  border-color: #ccc !important;
-  background-color: #fafafa !important;
+  border-color: whitesmoke !important;
+  background-color: whitesmoke !important;
   color: #bbb !important;
 }
 

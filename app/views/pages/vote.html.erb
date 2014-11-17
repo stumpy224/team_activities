@@ -1,69 +1,92 @@
-<form id="voting_form" action="/submit_votes">
+<% if Time.now > Time.local(2014, 11, 19, 17, 00) %>
   <div class="row">
-    <div class="col-xs-12 col-md-10 col-md-offset-2 col-lg-10 col-lg-offset-2">
-      <div class="col-xs-8 col-md-4 col-lg-4" style="margin-left:2em;">
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h3 class="panel-title">Who's voting?</h3>
-          </div>
-          <div class="panel-body">
-            <div class="col-md-10 col-xs-10 center-block">
-              <%= text_field :member, :identifier, placeholder: 'Enter ACID', class: 'form-control', autofocus: true %>
-              <%= hidden_field_tag :member_id %>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-xs-8 col-md-5 col-lg-5">
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h3 class="panel-title">Choose your meal option</h3>
-          </div>
-          <div class="panel-body" style="text-align:center;">
-            <div valign="center" style="padding-top:7px; padding-bottom:8px;">
-              <label class="radio-inline">
-                <input type="radio" name="meal_options" id="lunch_radio" value="lunch"> Lunch
-              </label>
-              <label class="radio-inline">
-                <input type="radio" name="meal_options" id="dinner_radio" value="dinner"> Dinner
-              </label>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="row center-block">
-    <div class="col-md-6 col-xs-12 center-block">
+    <div class="col-xs-6 col-md-4 col-lg-4 center-block">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <h3 class="panel-title">Drag your top 3 restaurants to Selections</h3>
+          <h2 class="panel-title">Voting Closed</h2>
         </div>
         <div class="panel-body">
-          <div class="col-md-6 col-xs-6">
-            <h5>Nominations</h5>
-            <ul id="restaurant_nominations" class="source connected">
-              <% Nomination.get_nominations.each do |n| %>
-                <% @r = Restaurant.find(n.restaurant_id) %>
-                <%= content_tag :li do %>
-                  <%= link_to @r.name, @r.url, target: '_blank', data: {'nomination-id' => "#{n.id}"} %>
-                <% end %>
-              <% end %>
-            </ul>
-          </div>
-          <div class="col-md-6 col-xs-6">
-            <h5>Selections</h5>
-            <ul id="restaurant_selections" class="target connected" />
-          </div>
+          <h4>
+            Voting is closed... please check the <a href="<%= results_path %>" style="text-decoration:underline;">results</a> to view the winning restaurant and meal type.
+          </h4>
         </div>
       </div>
     </div>
   </div>
-  <div class="row">
-    <div class="col-md-1 col-xs-1 center-block">
-      <%= submit_tag 'Submit', id: 'submit_votes', class: 'btn btn-primary' %>
+<% else %>
+  <form id="voting_form" action="/submit_votes">
+    <div class="row">
+      <div class="col-xs-6 col-md-4 col-lg-4 center-block">
+        <!-- <div id="countdown_alert" class="alert alert-info" role="alert" style="text-align:center;"></div> -->
+      </div>
     </div>
-  </div>
-</form>
+    <div class="row">
+      <div class="col-xs-12 col-md-10 col-md-offset-2 col-lg-10 col-lg-offset-2">
+        <div class="col-xs-8 col-md-4 col-lg-4" style="margin-left:2em;">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">Who's voting?</h3>
+            </div>
+            <div class="panel-body">
+              <div class="col-md-10 col-xs-10 center-block">
+                <%= text_field :member, :identifier, placeholder: 'Enter ACID', class: 'form-control', autofocus: true %>
+                <%= hidden_field_tag :member_id %>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-8 col-md-5 col-lg-5">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">Choose your meal option</h3>
+            </div>
+            <div class="panel-body" style="text-align:center;">
+              <div valign="center" style="padding-top:7px; padding-bottom:8px;">
+                <label class="radio-inline">
+                  <input type="radio" name="meal_options" id="lunch_radio" value="lunch"> Lunch
+                </label>
+                <label class="radio-inline">
+                  <input type="radio" name="meal_options" id="dinner_radio" value="dinner"> Dinner
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row center-block">
+      <div class="col-md-6 col-xs-12 center-block">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Drag your top 3 restaurants to Selections</h3>
+          </div>
+          <div class="panel-body">
+            <div class="col-md-6 col-xs-6">
+              <h5>Nominations</h5>
+              <ul id="restaurant_nominations" class="source connected">
+                <% Nomination.get_nominations.each do |n| %>
+                  <% @r = Restaurant.find(n.restaurant_id) %>
+                  <%= content_tag :li do %>
+                    <%= link_to @r.name, @r.url, target: '_blank', data: {'nomination-id' => "#{n.id}"} %>
+                  <% end %>
+                <% end %>
+              </ul>
+            </div>
+            <div class="col-md-6 col-xs-6">
+              <h5>Selections</h5>
+              <ul id="restaurant_selections" class="target connected" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-1 col-xs-1 center-block">
+        <%= submit_tag 'Submit', id: 'submit_votes', class: 'btn btn-primary' %>
+      </div>
+    </div>
+  </form>
 
-<%= render partial: 'modal_informative' %>
+  <%= render partial: 'modal_informative' %>
+<% end %>
+

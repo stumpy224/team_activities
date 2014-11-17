@@ -53,6 +53,35 @@ function init() {
   $("#close_member_already_voted_modal").click(function() {
     location.reload();
   });
+
+  if (window.location.pathname == '/')
+    setCurrentLinkToVote();
+  else
+    setCurrentLinkToResults();
+
+  showTimeLeftToVote();
+}
+
+function showTimeLeftToVote() {
+  var cutoffDate = new Date("November 19, 2014 17:00:00");
+  if (cutoffDate <= new Date()) {
+    $('#countdown_alert').hide();
+  }
+
+  $('#countdown_alert').countdown('11/19/2014 17:00:00', function(event) {
+    $(this).html(event.strftime('<strong>%-D days | %-H h | %M min | %S sec</strong>') 
+      + ' until results are official.');
+  });
+}
+
+function setCurrentLinkToVote() {
+  $('#nav_link_to_vote').addClass('active');
+  $('#nav_link_to_results').removeClass('active');
+}
+
+function setCurrentLinkToResults() {
+  $('#nav_link_to_results').addClass('active');
+  $('#nav_link_to_vote').removeClass('active');
 }
 
 function submitFormAfterValidation() {

@@ -17,6 +17,13 @@ body { padding-top: 70px; }
   float: right !important;
 }
 
+#countdown_alert p {
+  display: inline-block;
+  padding: 5px;
+  background: #FFA500;
+  margin: 0 0 20px;
+}
+
 #restaurant_nominations {
   min-height: 50px;
   /*margin: 0px 25px 10px 0px;*/

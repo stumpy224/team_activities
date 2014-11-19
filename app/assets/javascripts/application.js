@@ -63,7 +63,7 @@ function init() {
 }
 
 function showTimeLeftToVote() {
-  var cutoffDateString = "11/19/14 17:00:00";
+  var cutoffDateString = "11/19/2014 17:00:00";
   var cutoffDate = new Date(cutoffDateString);
   if (cutoffDate <= new Date()) {
     $('#countdown_alert').hide();

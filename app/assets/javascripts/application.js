@@ -63,13 +63,14 @@ function init() {
 }
 
 function showTimeLeftToVote() {
-  var cutoffDate = new Date("November 19, 2014 17:00:00");
+  var cutoffDateString = "11/19/14 17:00:00";
+  var cutoffDate = new Date(cutoffDateString);
   if (cutoffDate <= new Date()) {
     $('#countdown_alert').hide();
   }
 
-  $('#countdown_alert').countdown('11/19/2014 17:00:00', function(event) {
-    $(this).html(event.strftime('<strong>%-D days | %-H h | %M min | %S sec</strong>') 
+  $('#countdown_alert').countdown(cutoffDateString, function(event) {
+    $(this).html(event.strftime('<strong>%-D days | %-H hours | %M mins | %S secs</strong>')
       + ' until results are official.');
   });
 }

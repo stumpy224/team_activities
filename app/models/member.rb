@@ -1,5 +1,5 @@
 class Member < ActiveRecord::Base
-  validates_presence_of :identifier, :name, :active
+  validates_presence_of :identifier, :name
   has_many :votes
   
   def active?
@@ -7,6 +7,6 @@ class Member < ActiveRecord::Base
   end
 
   def self.get_member_by_identifier(acid)
-    @member = Member.find_by identifier: acid.upcase
+    @member = Member.where(identifier: acid.upcase, active: true)
   end
 end

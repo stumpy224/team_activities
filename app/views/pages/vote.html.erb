@@ -8,7 +8,10 @@
   ga('send', 'pageview');
 </script>
 
-<% if Time.zone.now > Time.zone.local(2014, 11, 19, 17, 00) %>
+<% @cutoff_at = Cutoff.order('cutoff_at desc').first.cutoff_at %>
+<div id="cutoff_at"><%= @cutoff_at %></div>
+
+<% if Time.zone.now > @cutoff_at %>
   <div class="row">
     <div class="col-xs-6 col-md-4 col-lg-4 center-block">
       <div class="panel panel-default">

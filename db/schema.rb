@@ -11,18 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141112022603) do
+ActiveRecord::Schema.define(version: 20151103001222) do
 
-  create_table "meals", force: true do |t|
+  create_table "cutoffs", force: :cascade do |t|
+    t.datetime "cutoff_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "meals", force: :cascade do |t|
     t.integer  "member_id"
     t.boolean  "dinner_indicator"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "members", force: true do |t|
-    t.string   "identifier"
-    t.string   "name"
+  create_table "members", force: :cascade do |t|
+    t.string   "identifier", limit: 255
+    t.string   "name",       limit: 255
     t.boolean  "active"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -30,20 +36,20 @@ ActiveRecord::Schema.define(version: 20141112022603) do
 
   add_index "members", ["identifier"], name: "index_members_on_identifier", unique: true
 
-  create_table "nominations", force: true do |t|
+  create_table "nominations", force: :cascade do |t|
     t.integer  "restaurant_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "restaurants", force: true do |t|
-    t.string   "name"
-    t.string   "url"
+  create_table "restaurants", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.string   "url",        limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "votes", force: true do |t|
+  create_table "votes", force: :cascade do |t|
     t.integer  "member_id"
     t.integer  "nomination_id"
     t.integer  "points"

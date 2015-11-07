@@ -9,7 +9,7 @@
 </script>
 
 <% @cutoff_at = Cutoff.order('cutoff_at desc').first.cutoff_at %>
-<div id="cutoff_at"><%= @cutoff_at %></div>
+<div style="display:none;" id="cutoff_at"><%= @cutoff_at %></div>
 
 <% if Time.zone.now > @cutoff_at %>
   <div class="row">

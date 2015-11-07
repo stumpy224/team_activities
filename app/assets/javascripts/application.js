@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require twitter/bootstrap
+//= require moment
 //= require turbolinks
 //= require ie-placeholder-shim
 //= require_tree .
@@ -33,8 +34,6 @@ function init() {
         $.each(member, function(key, val) {
           if (key == 'id')
             $('#member_id').val(val);
-          // if (key == 'name')
-          //   $('#member_name').text(val);
         });
       });
     }
@@ -63,14 +62,16 @@ function init() {
 }
 
 function showTimeLeftToVote() {
-  var cutoffDateString = "11/19/2014 17:00:00";
-  var cutoffDate = new Date(cutoffDateString);
-  if (cutoffDate <= new Date()) {
+  var cutoffDate = $('#cutoff_at').text();
+  var cutoffDateWithoutTimeZone = cutoffDate.substring(0, cutoffDate.indexOf(' -0500'));
+  var cutoffDateMoment = moment(cutoffDateWithoutTimeZone);
+  
+  if (cutoffDateMoment <= new Date()) {
     $('#countdown_alert').hide();
   }
 
-  $('#countdown_alert').countdown(cutoffDateString, function(event) {
-    $(this).html(event.strftime('<strong>%-D d | %-H h | %M m | %S s</strong>')
+  $('#countdown_alert').countdown(cutoffDateMoment.toDate(), function(event) {
+    $(this).html(event.strftime('<strong>%D d %H:%M:%S</strong>')
       + ' until results are official.');
   });
 }

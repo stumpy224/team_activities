@@ -443,57 +443,50 @@
 			"file": "db/schema.rb",
 			"settings":
 			{
-				"buffer_size": 1727,
+				"buffer_size": 1979,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "app/views/layouts/application.html.erb",
-			"settings":
-			{
-				"buffer_size": 700,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "Gemfile",
-			"settings":
-			{
-				"buffer_size": 1286,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"contents": "Searching 243 files for \"voting closed\"\n\n/home/stumpy/Development/Projects/team_activities/app/views/pages/vote.html.erb:\n   14        <div class=\"panel panel-default\">\n   15          <div class=\"panel-heading\">\n   16:           <h2 class=\"panel-title\">Voting Closed</h2>\n   17          </div>\n   18          <div class=\"panel-body\">\n\n1 match in 1 file\n",
-			"settings":
-			{
-				"buffer_size": 353,
-				"line_ending": "Unix",
-				"name": "Find Results",
-				"scratch": true
-			}
-		},
-		{
+			"contents": "<script>\n  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){\n  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),\n  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)\n  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');\n\n  ga('create', 'UA-56804258-1', 'auto');\n  ga('send', 'pageview');\n</script>\n\n\n\n<% if Time.zone.now > Time.zone.local(2014, 11, 19, 17, 00) %>\n  <div class=\"row\">\n    <div class=\"col-xs-6 col-md-4 col-lg-4 center-block\">\n      <div class=\"panel panel-default\">\n        <div class=\"panel-heading\">\n          <h2 class=\"panel-title\">Voting Closed</h2>\n        </div>\n        <div class=\"panel-body\">\n          <h4>\n            Voting is closed... please check the <a href=\"<%= results_path %>\" style=\"text-decoration:underline;\">results</a> to view the winning restaurant and meal type.\n          </h4>\n        </div>\n      </div>\n    </div>\n  </div>\n<% else %>\n  <form id=\"voting_form\" action=\"/submit_votes\">\n    <div class=\"row\">\n      <div class=\"col-xs-12 col-md-10 col-md-offset-2 col-lg-10 col-lg-offset-2\">\n        <div class=\"col-xs-8 col-md-4 col-lg-4\" style=\"margin-left:2em;\">\n          <div class=\"panel panel-default\">\n            <div class=\"panel-heading\">\n              <h3 class=\"panel-title\">Who's voting?</h3>\n            </div>\n            <div class=\"panel-body\">\n              <div class=\"col-md-10 col-xs-10 center-block\">\n                <%= text_field :member, :identifier, placeholder: 'Enter ACID', class: 'form-control', autofocus: true %>\n                <%= hidden_field_tag :member_id %>\n              </div>\n            </div>\n          </div>\n        </div>\n        <div class=\"col-xs-8 col-md-5 col-lg-5\">\n          <div class=\"panel panel-default\">\n            <div class=\"panel-heading\">\n              <h3 class=\"panel-title\">Choose your meal option</h3>\n            </div>\n            <div class=\"panel-body\" style=\"text-align:center;\">\n              <div valign=\"center\" style=\"padding-top:7px; padding-bottom:8px;\">\n                <label class=\"radio-inline\">\n                  <input type=\"radio\" name=\"meal_options\" id=\"lunch_radio\" value=\"lunch\"> Lunch\n                </label>\n                <label class=\"radio-inline\">\n                  <input type=\"radio\" name=\"meal_options\" id=\"dinner_radio\" value=\"dinner\"> Dinner\n                </label>\n              </div>\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>\n    <div class=\"row center-block\">\n      <div class=\"col-md-6 col-xs-12 center-block\">\n        <div class=\"panel panel-default\">\n          <div class=\"panel-heading\">\n            <h3 class=\"panel-title\">Drag your top 3 restaurants to Selections</h3>\n          </div>\n          <div class=\"panel-body\">\n            <div class=\"col-md-6 col-xs-6\">\n              <h5>Nominations</h5>\n              <ul id=\"restaurant_nominations\" class=\"source connected\">\n                <% Nomination.get_nominations.each do |n| %>\n                  <% @r = Restaurant.find(n.restaurant_id) %>\n                  <%= content_tag :li do %>\n                    <%= link_to @r.name, @r.url, target: '_blank', data: {'nomination-id' => \"#{n.id}\"} %>\n                  <% end %>\n                <% end %>\n              </ul>\n            </div>\n            <div class=\"col-md-6 col-xs-6\">\n              <h5>Selections</h5>\n              <ul id=\"restaurant_selections\" class=\"target connected\" />\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>\n    <div class=\"row\">\n      <div class=\"col-md-1 col-xs-1 center-block\">\n        <%= submit_tag 'Submit', id: 'submit_votes', class: 'btn btn-primary' %>\n      </div>\n    </div>\n  </form>\n\n  <%= render partial: 'modal_informative' %>\n<% end %>\n\n",
 			"file": "app/views/pages/vote.html.erb",
+			"file_size": 3805,
+			"file_write_time": 130679191293541891,
 			"settings":
 			{
-				"buffer_size": 3805,
+				"buffer_size": 3807,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "db/migrate/20141030003608_create_members.rb",
+			"file": "app/models/cutoff.rb",
 			"settings":
 			{
-				"buffer_size": 253,
+				"buffer_size": 38,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "app/controllers/members_controller.rb",
+			"file": "app/models/vote.rb",
 			"settings":
 			{
-				"buffer_size": 2125,
+				"buffer_size": 557,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/assets/javascripts/application.js",
+			"settings":
+			{
+				"buffer_size": 3986,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/controllers/pages_controller.rb",
+			"settings":
+			{
+				"buffer_size": 1081,
 				"line_ending": "Unix"
 			}
 		}
@@ -555,22 +548,45 @@
 		"/home/stumpy/Development/Projects/team_activities",
 		"/home/stumpy/Development/Projects/team_activities/app",
 		"/home/stumpy/Development/Projects/team_activities/app/assets",
+		"/home/stumpy/Development/Projects/team_activities/app/assets/javascripts",
 		"/home/stumpy/Development/Projects/team_activities/app/controllers",
+		"/home/stumpy/Development/Projects/team_activities/app/models",
 		"/home/stumpy/Development/Projects/team_activities/app/views",
+		"/home/stumpy/Development/Projects/team_activities/app/views/cutoffs",
 		"/home/stumpy/Development/Projects/team_activities/app/views/layouts",
+		"/home/stumpy/Development/Projects/team_activities/app/views/members",
 		"/home/stumpy/Development/Projects/team_activities/app/views/pages",
 		"/home/stumpy/Development/Projects/team_activities/db",
 		"/home/stumpy/Development/Projects/team_activities/db/migrate"
 	],
 	"file_history":
 	[
+		"/home/stumpy/Development/Projects/team_activities/app/models/member.rb",
+		"/home/stumpy/Development/Projects/team_activities/app/controllers/members_controller.rb",
+		"/home/stumpy/Development/Projects/team_activities/app/controllers/cutoffs_controller.rb",
+		"/home/stumpy/Development/Projects/team_activities/db/migrate/20151102234817_create_cutoffs.rb",
+		"/home/stumpy/Development/Projects/team_activities/app/views/pages/results.html.erb",
+		"/home/stumpy/Development/Projects/team_activities/app/controllers/application_controller.rb",
+		"/home/stumpy/Development/Projects/team_activities/app/views/members/show.html.erb",
+		"/home/stumpy/Development/Projects/team_activities/app/views/cutoffs/show.html.erb",
+		"/home/stumpy/Development/Projects/team_activities/app/views/members/new.html.erb",
+		"/home/stumpy/Development/Projects/team_activities/app/views/cutoffs/new.html.erb",
+		"/home/stumpy/Development/Projects/team_activities/app/views/members/index.html.erb",
+		"/home/stumpy/Development/Projects/team_activities/app/views/cutoffs/index.html.erb",
+		"/home/stumpy/Development/Projects/team_activities/app/views/members/edit.html.erb",
+		"/home/stumpy/Development/Projects/team_activities/app/views/cutoffs/edit.html.erb",
+		"/home/stumpy/Development/Projects/team_activities/app/views/members/_form.html.erb",
+		"/home/stumpy/Development/Projects/team_activities/db/migrate/20151103000354_create_cutoffs.rb",
+		"/home/stumpy/Development/Projects/team_activities/db/seeds.rb",
+		"/home/stumpy/Development/Projects/team_activities/app/models/nomination.rb",
+		"/home/stumpy/Development/Projects/team_activities/app/models/meal.rb",
+		"/home/stumpy/Development/Projects/team_activities/Gemfile",
+		"/home/stumpy/Development/Projects/team_activities/app/views/layouts/application.html.erb",
+		"/home/stumpy/Development/Projects/team_activities/db/migrate/20141030003608_create_members.rb",
 		"/home/stumpy/Development/Projects/team_activities/app/views/layouts/_header.html.erb",
 		"/home/stumpy/Development/Projects/team_activities/app/views/pages/vote.html.erb",
 		"/home/stumpy/Development/Projects/team_activities/app/assets/javascripts/application.js",
-		"/home/stumpy/Development/Projects/team_activities/app/views/layouts/application.html.erb",
 		"/home/stumpy/Development/Projects/team_activities/config/application.rb",
-		"/home/stumpy/Development/Projects/team_activities/app/views/pages/results.html.erb",
-		"/home/stumpy/Development/Projects/team_activities/Gemfile",
 		"/home/stumpy/Development/Projects/team_activities/app/assets/stylesheets/application.css",
 		"/home/jstump/Development/projects/team_activities/app/assets/javascripts/jquery.countdown.min.js",
 		"/home/jstump/Development/projects/team_activities/app/views/pages/vote.html.erb",
@@ -672,26 +688,7 @@
 		"/home/jstump/Development/projects/MarchMadness/config/routes.rb",
 		"/home/jstump/Development/projects/MarchMadness/app/views/layouts/application.html.erb",
 		"/home/jstump/Development/projects/MarchMadness/app/views/layouts/_wait.html.erb",
-		"/home/jstump/Development/projects/MarchMadness/app/admin/participant_square.rb",
-		"/home/jstump/Development/projects/MarchMadness/app/views/pages/_wait.html.erb",
-		"/home/jstump/Development/projects/MarchMadness/app/views/pages/summary.html.erb",
-		"/home/jstump/Development/projects/MarchMadness/app/assets/javascripts/application.js",
-		"/home/jstump/Development/projects/MarchMadness/app/assets/javascripts/pages.js.coffee",
-		"/home/jstump/Development/projects/MarchMadness/app/models/participant.rb",
-		"/home/jstump/Development/projects/MarchMadness/log/development.log",
-		"/home/jstump/Development/projects/MarchMadness/db/migrate/20140311020443_add_display_name_to_participants.rb",
-		"/home/jstump/Development/projects/MarchMadness/config/environments/development.rb",
-		"/home/jstump/Development/projects/MarchMadness/config/application.rb",
-		"/home/jstump/Development/projects/MarchMadness/app/assets/stylesheets/application.css.scss",
-		"/home/jstump/Development/projects/MarchMadness/config/locales/en.yml",
-		"/home/jstump/Development/projects/MarchMadness/app/assets/stylesheets/responsive-tables.css.scss",
-		"/home/jstump/Development/projects/MarchMadness/app/assets/stylesheets/_colors.scss",
-		"/home/jstump/Development/projects/MarchMadness/app/views/pages/_paginator.html.erb",
-		"/home/jstump/Development/projects/MarchMadness/app/assets/images/ajax-loader.gif",
-		"/home/jstump/Development/projects/MarchMadness/spec/models/participant_spec.rb",
-		"/home/jstump/Development/projects/MarchMadness/spec/models/participant_squares_spec.rb",
-		"/home/jstump/Development/projects/MarchMadness/spec/models/square_spec.rb",
-		"/home/jstump/Development/projects/MarchMadness/db/migrate/20140308234459_remove_index_from_squares_loser_digit.rb"
+		"/home/jstump/Development/projects/MarchMadness/app/admin/participant_square.rb"
 	],
 	"find":
 	{
@@ -710,6 +707,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"get_member_by_identifier",
 			"voting closed",
 			"nav_link_to_vote",
 			"countdown_alert",
@@ -836,8 +834,7 @@
 			"@digit",
 			"\n  ",
 			"find",
-			"shift+r",
-			"+t"
+			"shift+r"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -888,7 +885,7 @@
 	"groups":
 	[
 		{
-			"selected": 4,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -897,15 +894,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1727,
+						"buffer_size": 1979,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1235,
-								1235
+								1342,
+								1342
 							]
 						],
 						"settings":
@@ -914,8 +911,8 @@
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.x": -0.0,
+						"translation.y": 270.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 4,
@@ -923,11 +920,69 @@
 				},
 				{
 					"buffer": 1,
-					"file": "app/views/layouts/application.html.erb",
+					"file": "app/views/pages/vote.html.erb",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 700,
+						"buffer_size": 3807,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								695,
+								695
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 36.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "app/models/cutoff.rb",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 38,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								33,
+								33
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "app/models/vote.rb",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 557,
 						"regions":
 						{
 						},
@@ -940,85 +995,9 @@
 						],
 						"settings":
 						{
-							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
+							"syntax": "Packages/Ruby/Ruby.tmLanguage",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 108.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "Gemfile",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1286,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								933,
-								933
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Ruby/Ruby.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 353,
-						"regions":
-						{
-							"match":
-							{
-								"flags": 112,
-								"regions":
-								[
-									[
-										253,
-										266
-									]
-								],
-								"scope": ""
-							}
-						},
-						"selection":
-						[
-							[
-								260,
-								260
-							]
-						],
-						"settings":
-						{
-							"default_dir": "/home/stumpy/Development/Projects/team_activities",
-							"detect_indentation": false,
-							"line_numbers": false,
-							"output_tag": 1,
-							"result_base_dir": "",
-							"result_file_regex": "^([A-Za-z\\\\/<].*):$",
-							"result_line_regex": "^ +([0-9]+):",
-							"scroll_past_end": true,
-							"syntax": "Packages/Default/Find Results.hidden-tmLanguage",
-							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -1029,77 +1008,49 @@
 				},
 				{
 					"buffer": 4,
-					"file": "app/views/pages/vote.html.erb",
+					"file": "app/assets/javascripts/application.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3805,
+						"buffer_size": 3986,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								626,
-								626
+								791,
+								791
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 108.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
 					"buffer": 5,
-					"file": "db/migrate/20141030003608_create_members.rb",
+					"file": "app/controllers/pages_controller.rb",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 253,
+						"buffer_size": 1081,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Ruby/Ruby.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 6,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "app/controllers/members_controller.rb",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2125,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								360,
-								360
+								59,
+								59
 							]
 						],
 						"settings":
@@ -1112,7 +1063,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 3,
 					"type": "text"
 				}
 			]

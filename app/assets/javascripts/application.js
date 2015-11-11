@@ -23,7 +23,7 @@ $(document).on("page:change", function() {
 });
 
 $(function() {
-  init();
+  // init();
 });
 
 function init() {
@@ -31,10 +31,7 @@ function init() {
     var acid = $('#member_identifier').val();
     if (acid.length > 0) {
       $.getJSON('/get_member/' + acid, function(member) {
-        $.each(member, function(key, val) {
-          if (key == 'id')
-            $('#member_id').val(val);
-        });
+        $('#member_id').val(member[0]['id']);
       });
     }
   });
@@ -53,10 +50,11 @@ function init() {
     location.reload();
   });
 
-  if (window.location.pathname == '/')
+  if (window.location.pathname == '/') {
     setCurrentLinkToVote();
-  else
+  } else {
     setCurrentLinkToResults();
+  }
 
   showTimeLeftToVote();
 }
@@ -87,23 +85,25 @@ function setCurrentLinkToResults() {
 }
 
 function submitFormAfterValidation() {
-  if (isMemberFound() && isMealTypeSelected())
+  if (isMemberFound() && isMealTypeSelected()) {
     submitVotes();
+  }
 }
 
 function isMemberFound() {
-  if($('#member_id').val())
+  alert('within isMemberFound... member_id val = ' + $('#member_id').val());
+  if($('#member_id').val()) {
     return true
-  else {
+  } else {
     showInformativeModal('Please enter your E-Business ACID.', 'Close');
     return false;
   }
 };
 
 function isMealTypeSelected() {
-  if ($("#lunch_radio").is(":checked") || $("#dinner_radio").is(":checked"))
+  if ($("#lunch_radio").is(":checked") || $("#dinner_radio").is(":checked")) {
     return true;
-  else {
+  } else {
     showInformativeModal('Please select a meal option.', 'Close');
     return false;
   }
@@ -113,8 +113,7 @@ function submitVotes() {
   if ($('#restaurant_selections li').length > 3) {
     showInformativeModal('Only three restaurants can be selected.', 'Close');
     return false;
-  }
-  else if ($('#restaurant_selections li').length == 0) {
+  } else if ($('#restaurant_selections li').length == 0) {
     showInformativeModal('Please select at least one restaurant.', 'Close');
     return false;
   }
@@ -124,8 +123,9 @@ function submitVotes() {
   $('#restaurant_selections li a').each( function() {
     count++;
     var selection = $(this).attr('data-nomination-id');
-    if (count <= 3)
+    if (count <= 3) {
       selections.push(selection);
+    }
   });
 
   var data = {

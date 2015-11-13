@@ -8,13 +8,10 @@
   ga('send', 'pageview');
 </script>
 
-<% @cutoff_at = Cutoff.order('cutoff_at desc').first.cutoff_at %>
-<div style="display:none;" id="cutoff_at"><%= @cutoff_at %></div>
-
 <% if Vote.any? %>
   <div class="col-sm-4 center-block">
     <div class="panel panel-default">
-      <div class="panel-heading">
+      <div class="panel-heading" align="center">
         <h3 class="panel-title">Meal Types</h3>
       </div>
       <div class="panel-body" style="padding:0;">
@@ -55,7 +52,7 @@
   </div>
   <div class="col-sm-4 center-block">
     <div class="panel panel-default">
-      <div class="panel-heading">
+      <div class="panel-heading" align="center">
         <h3 class="panel-title">Restaurants</h3>
       </div>
       <div class="panel-body" style="padding:0;">

@@ -9,7 +9,6 @@
 </script>
 
 <% @cutoff_at = Cutoff.order('cutoff_at desc').first.cutoff_at %>
-<div style="display:none;" id="cutoff_at"><%= @cutoff_at %></div>
 
 <% if Time.zone.now > @cutoff_at %>
   <div class="row">
@@ -64,9 +63,9 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-sm-6 center-block" align="center">
+        <div class="col-sm-6 center-block" align="left">
           <div class="panel panel-default">
-            <div class="panel-heading">
+            <div class="panel-heading" align="center">
               <h3 class="panel-title">Drag your top 3 restaurants to Selections</h3>
             </div>
             <div class="panel-body">

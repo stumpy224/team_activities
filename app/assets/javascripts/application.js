@@ -91,7 +91,6 @@ function submitFormAfterValidation() {
 }
 
 function isMemberFound() {
-  alert('within isMemberFound... member_id val = ' + $('#member_id').val());
   if($('#member_id').val()) {
     return true
   } else {

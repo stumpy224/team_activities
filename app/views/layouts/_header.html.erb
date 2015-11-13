@@ -9,6 +9,10 @@
       </button>
       <%= link_to 'E-Business Holiday Meal', root_path, class: 'navbar-brand' %>
     </div>
+    
+    <% @cutoff_at = Cutoff.order('cutoff_at desc').first.cutoff_at %>
+    <div style="display:none;" id="cutoff_at"><%= @cutoff_at %></div>
+
     <div class="col-sm-4 center-block">
       <div id="countdown_alert" class="navbar-text" style="color:white;"></div>
     </div>

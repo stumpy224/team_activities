@@ -44,3 +44,5 @@ Restaurant.create(name: 'Iron Skillet', url: 'http://www.ironskillet.net/menu.ht
 Restaurant.all.each do |r|
   Nomination.create(restaurant_id: r.id)
 end
+
+Cutoff.create(cutoff_at: '2015-11-18T14:00:00')

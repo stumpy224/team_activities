@@ -5,6 +5,7 @@
  *= require_self
  *= require_tree .
  *= require bootstrap_and_overrides
+ *= require font-awesome
 */
 
 body { 
@@ -65,7 +66,7 @@ body {
 }
 
 #restaurant_nominations li, #restaurant_nominations a {
-  background-color: lightgray;
+  background-color: linen;
   text-decoration: underline;
 }
 
@@ -99,6 +100,7 @@ body {
   background-color: #f6fbf4 !important;
 }
 
-.center-block {
+.col-center {
   float: none !important;
+  margin: 0 auto;
 }

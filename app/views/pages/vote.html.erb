@@ -11,87 +11,76 @@
 <% @cutoff_at = Cutoff.order('cutoff_at desc').first.cutoff_at %>
 
 <% if Time.zone.now > @cutoff_at %>
-  <div class="row">
-    <div class="col-sm-4 center-block">
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h2 class="panel-title">Voting Closed</h2>
-        </div>
-        <div class="panel-body">
-          <h4>
-            Voting is closed... please check the <a href="<%= results_path %>" style="text-decoration:underline;">results</a> to view the winning restaurant and meal type.
-          </h4>
-        </div>
-      </div>
+  <div class="row col-center">
+    <div class="col-sm-8 col-center">
+      <div class="alert alert-warning" role="alert"><strong>Voting is closed!</strong> Please check the <a href="<%= results_path %>" style="text-decoration:underline;">results</a> to view the winning restaurant and meal type.</div>
     </div>
   </div>
 <% else %>
   <form id="voting_form" action="/submit_votes">
-    <div align="center">
-      <div class="row">
-        <div class="col-sm-4 center-block">
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <h3 class="panel-title">Who's voting?</h3>
-            </div>
-            <div class="panel-body">
-              <div class="col-sm-8 center-block">
-                <%= text_field :member, :identifier, placeholder: 'Enter ACID', class: 'form-control' %>
-                <%= hidden_field_tag :member_id %>
-              </div>
+    <div class="row">
+      <div class="col-sm-4 col-center">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title" style="text-align:center;">Who's voting?</h3>
+          </div>
+          <div class="panel-body">
+            <div class="col-sm-8 col-center">
+              <%= text_field :member, :identifier, placeholder: 'Enter ACID', class: 'form-control', style: 'text-align:center;' %>
+              <%= hidden_field_tag :member_id %>
             </div>
           </div>
         </div>
       </div>
-      <div class="row">
-        <div class="col-sm-4 center-block">
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <h3 class="panel-title">Choose your meal option</h3>
-            </div>
-            <div class="panel-body">
-              <div valign="center" style="padding-top:7px; padding-bottom:8px;">
-                <label class="radio-inline">
-                  <input type="radio" name="meal_options" id="lunch_radio" value="lunch" /> Lunch
-                </label>
-                <label class="radio-inline">
-                  <input type="radio" name="meal_options" id="dinner_radio" value="dinner" /> Dinner
-                </label>
-              </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-4 col-center">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title" style="text-align:center;">Choose your meal option</h3>
+          </div>
+          <div class="panel-body">
+            <div align="center" style="padding-top:7px; padding-bottom:8px;">
+              <label class="radio-inline">
+                <input type="radio" name="meal_options" id="lunch_radio" value="lunch" /> Lunch
+              </label>
+              <label class="radio-inline">
+                <input type="radio" name="meal_options" id="dinner_radio" value="dinner" /> Dinner
+              </label>
             </div>
           </div>
         </div>
       </div>
-      <div class="row">
-        <div class="col-sm-6 center-block" align="left">
-          <div class="panel panel-default">
-            <div class="panel-heading" align="center">
-              <h3 class="panel-title">Drag your top 3 restaurants to Selections</h3>
-            </div>
-            <div class="panel-body">
-              <div class="col-sm-5 col-sm-offset-1">
-                <h5>Nominations</h5>
-                <ul id="restaurant_nominations" class="source connected">
-                  <% Nomination.get_nominations.each do |n| %>
-                    <% @r = Restaurant.find(n.restaurant_id) %>
-                    <%= content_tag :li do %>
-                      <%= link_to @r.name, @r.url, target: '_blank', data: {'nomination-id' => "#{n.id}"} %>
-                    <% end %>
+    </div>
+    <div class="row">
+      <div class="col-sm-6 col-center" align="left">
+        <div class="panel panel-default">
+          <div class="panel-heading" align="center">
+            <h3 class="panel-title">Drag your top 3 restaurants to Selections</h3>
+          </div>
+          <div class="panel-body">
+            <div class="col-sm-5 col-sm-offset-1">
+              <h5>Nominations</h5>
+              <ul id="restaurant_nominations" class="source connected">
+                <% Nomination.get_nominations.each do |n| %>
+                  <% @r = Restaurant.find(n.restaurant_id) %>
+                  <%= content_tag :li do %>
+                    <%= link_to @r.name, @r.url, target: '_blank', data: {'nomination-id' => "#{n.id}"} %>
                   <% end %>
-                </ul>
-              </div>
-              <div class="col-sm-5">
-                <h5>Selections</h5>
-                <ul id="restaurant_selections" class="target connected" />
-              </div>
+                <% end %>
+              </ul>
+            </div>
+            <div class="col-sm-5">
+              <h5>Selections</h5>
+              <ul id="restaurant_selections" class="target connected" />
             </div>
           </div>
         </div>
       </div>
-      <div class="row">
-        <div class="col-sm-1 center-block">
-          <%= submit_tag 'Submit', id: 'submit_votes', class: 'btn btn-primary' %>
-        </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-1 col-center">
+        <%= submit_tag 'Submit', id: 'submit_votes', class: 'btn btn-primary' %>
       </div>
     </div>
   </form>

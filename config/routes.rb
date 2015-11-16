@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :cutoffs
+  resources :meals
   resources :members
   resources :nominations
   resources :restaurants

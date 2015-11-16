@@ -1,0 +1,26 @@
+<h1>Listing meals</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Member</th>
+      <th style="padding-left:3em;">Lunch/Dinner</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @meals.each do |meal| %>
+      <tr>
+        <td><%= @members.find(meal.member_id).name %></td>
+        <td style="padding-left:3em;"><%= meal.dinner_indicator ? 'Dinner' : 'Lunch' %></td>
+        <td style="padding-left:5em;"><%= link_to 'Edit', edit_meal_path(meal) %>&nbsp;|&nbsp;</td>
+        <td><%= link_to 'Delete', meal, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Meal', new_meal_path %>

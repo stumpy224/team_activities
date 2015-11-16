@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Member:</strong>
+  <%= @meal.member_id %>
+</p>
+
+<p>
+  <strong>Lunch/Dinner</strong>
+  <%= @meal.dinner_indicator %>
+</p>
+
+<%= link_to 'Edit', edit_meal_path(@meal) %> |
+<%= link_to 'New', new_meal_path %> |
+<%= link_to 'Show Meals', meals_path %>

@@ -13,7 +13,7 @@
 <% if Time.zone.now > @cutoff_at %>
   <div class="row col-center">
     <div class="col-sm-8 col-center">
-      <div class="alert alert-warning" role="alert"><strong>Voting is closed!</strong> Please check the <a href="<%= results_path %>" style="text-decoration:underline;">results</a> to view the winning restaurant and meal type.</div>
+      <div class="alert alert-warning" role="alert" align="center"><strong>Voting is closed!</strong> Please check the <a href="<%= results_path %>" style="text-decoration:underline;">results</a> to view the winning restaurant and meal type.</div>
     </div>
   </div>
 <% else %>

@@ -70,7 +70,7 @@ function showTimeLeftToVote() {
 
   $('#countdown_alert').countdown(cutoffDateMoment.toDate(), function(event) {
     $(this).html(event.strftime('<strong>%D d %H:%M:%S</strong>')
-      + ' until results are official.');
+      + ' until results are official.<br/><br/>');
   });
 }
 

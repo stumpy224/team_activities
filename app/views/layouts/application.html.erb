@@ -16,6 +16,15 @@
       <% if flash[:danger] %>
         <div class="alert-danger"><%= flash[:danger] %></div>
       <% end %>
+
+      <% @cutoff_at = Cutoff.order('cutoff_at desc').first.cutoff_at %>
+      <div style="display:none;" id="cutoff_at"><%= @cutoff_at %></div>
+
+      <div class="row">
+        <div class="col-sm-4 col-center">
+          <h5 id="countdown_alert" align="center"></h5>
+        </div>
+      </div>
       
       <%= yield %>
     </div>

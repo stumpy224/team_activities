@@ -9,13 +9,6 @@
       </button>
       <%= link_to 'E-Business Holiday Meal', root_path, class: 'navbar-brand' %>
     </div>
-    
-    <% @cutoff_at = Cutoff.order('cutoff_at desc').first.cutoff_at %>
-    <div style="display:none;" id="cutoff_at"><%= @cutoff_at %></div>
-
-    <div class="col-sm-4 col-center" style="padding-left:2em;">
-      <div id="countdown_alert" class="navbar-text" style="color:white;"></div>
-    </div>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li id="nav_link_to_vote"><%= link_to 'Vote', root_path %></li>

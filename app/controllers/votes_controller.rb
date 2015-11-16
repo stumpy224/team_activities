@@ -4,7 +4,7 @@ class VotesController < ApplicationController
   # GET /votes
   # GET /votes.json
   def index
-    @votes = Vote.all.order(:created_at).reverse_order
+    @votes = Vote.all.order(:created_at).reverse_order.order(:points).reverse_order
     @members = Member.joins(:votes)
     @nominations = Nomination.all
     @restaurants = Restaurant.all

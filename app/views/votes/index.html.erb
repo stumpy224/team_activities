@@ -1,0 +1,29 @@
+<h1>Listing votes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Member</th>
+      <th style="padding-left:3em;">Restaurant</th>
+      <th style="padding-left:3em;">Points</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @votes.each do |vote| %>
+      <% @restaurant_id = @nominations.find(vote.nomination_id).restaurant_id %>
+      <tr>
+        <td><%= @members.find(vote.member_id).name %></td>
+        <td style="padding-left:3em;"><%= @restaurants.find(@restaurant_id).name %></td>
+        <td align="center" style="padding-left:3em;"><%= vote.points %></td>
+        <td style="padding-left:5em;"><%= link_to 'Edit', edit_vote_path(vote) %>&nbsp;|&nbsp;</td>
+        <td><%= link_to 'Delete', vote, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Vote', new_vote_path %>

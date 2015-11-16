@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Member:</strong>
+  <%= @vote.member_id %>
+</p>
+
+<p>
+  <strong>Nomination:</strong>
+  <%= @vote.nomination_id %>
+</p>
+
+<p>
+  <strong>Points:</strong>
+  <%= @vote.points %>
+</p>
+
+<%= link_to 'Edit', edit_vote_path(@vote) %> |
+<%= link_to 'New', new_vote_path %> |
+<%= link_to 'Show Votes', votes_path %>

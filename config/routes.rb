@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
   resources :cutoffs
-  resources :meals
+  #resources :meals
   resources :members
   resources :nominations
   resources :restaurants
-  resources :votes
+  #resources :votes
 
   root 'pages#vote'
   get 'get_member/:acid', to: 'members#get_member_by_identifier'

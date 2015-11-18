@@ -15,14 +15,6 @@ ActiveAdmin.register Cutoff do
     actions
   end
 
-  show do
-    attributes_table do
-      row :cutoff_at
-      row :created_at
-      row :updated_at
-    end
-  end
-
   action_item only: :show do
     link_to 'New Cutoff', new_admin_cutoff_path, method: :get
   end

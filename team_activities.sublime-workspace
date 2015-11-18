@@ -471,18 +471,47 @@
 			"file": "config/routes.rb",
 			"settings":
 			{
-				"buffer_size": 378,
+				"buffer_size": 336,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"contents": "ActiveAdmin.register Meal do\n  permit_params :member_id, :dinner_indicator\n\n  form do |f|\n    f.inputs do\n      f.input :member_id, as: :select, collection: \n        Member.select(:id, :name).order(:name)\n\n      \n\n      f.input :nomination_id, label: 'Restaurant', as: :select,\n        collection: Nomination.all.map{|n| [Restaurant.find(n.restaurant_id).name, n.id]}\n      \n      f.input :points\n    end\n\n    f.actions\n  end\n\n  index do\n    column :member_id, sortable: :member_id do |m|\n      Member.find(m.member_id).name\n    end\n    column :nomination_id, label: 'Restaurant', sortable: :nomination_id do |n|\n      Restaurant.find(n.nomination_id).name\n    end\n    column :points, sortable: :points\n    column :created_at, sortable: :created_at\n    column :updated_at, sortable: :updated_at\n    actions\n  end\n\n  show do\n    attributes_table do\n      row('Member') { |m| Member.find(m.member_id).name }\n      row('Restaurant') { |n| Restaurant.find(n.nomination_id).name }\n      row :points\n      row :created_at\n      row :updated_at\n    end\n  end\n\n  action_item only: :show do\n    link_to 'New Vote', new_admin_vote_path, method: :get\n  end\nend\n",
 			"file": "app/admin/meal.rb",
-			"file_size": 389,
-			"file_write_time": 130923327547976202,
 			"settings":
 			{
-				"buffer_size": 1150,
+				"buffer_size": 748,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/admin/member.rb",
+			"settings":
+			{
+				"buffer_size": 475,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/controllers/members_controller.rb",
+			"settings":
+			{
+				"buffer_size": 2125,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/admin/cutoff.rb",
+			"settings":
+			{
+				"buffer_size": 455,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/controllers/cutoffs_controller.rb",
+			"settings":
+			{
+				"buffer_size": 1857,
 				"line_ending": "Unix"
 			}
 		},
@@ -514,7 +543,7 @@
 			"file": "app/admin/vote.rb",
 			"settings":
 			{
-				"buffer_size": 1148,
+				"buffer_size": 1170,
 				"line_ending": "Unix"
 			}
 		},
@@ -940,7 +969,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 2,
 			"sheets":
 			[
 				{
@@ -949,15 +978,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 378,
+						"buffer_size": 336,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								131,
-								131
+								110,
+								110
 							]
 						],
 						"settings":
@@ -966,11 +995,11 @@
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
-						"translation.x": -0.0,
+						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
@@ -979,15 +1008,45 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1150,
+						"buffer_size": 748,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								425,
-								425
+								31,
+								31
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "app/admin/member.rb",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 475,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								316,
+								316
 							]
 						],
 						"settings":
@@ -1002,7 +1061,95 @@
 					"type": "text"
 				},
 				{
-					"buffer": 2,
+					"buffer": 3,
+					"file": "app/controllers/members_controller.rb",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2125,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2125,
+								2125
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": -0.0,
+						"translation.y": 513.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "app/admin/cutoff.rb",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 455,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								353,
+								353
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "app/controllers/cutoffs_controller.rb",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1857,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1857,
+								1857
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": -0.0,
+						"translation.y": 351.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
 					"file": "app/controllers/meals_controller.rb",
 					"semi_transient": false,
 					"settings":
@@ -1028,11 +1175,11 @@
 						"translation.y": 369.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 7,
 					"type": "text"
 				},
 				{
-					"buffer": 3,
+					"buffer": 7,
 					"file": "Gemfile",
 					"semi_transient": false,
 					"settings":
@@ -1056,11 +1203,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 7,
+					"stack_index": 11,
 					"type": "text"
 				},
 				{
-					"buffer": 4,
+					"buffer": 8,
 					"file": "db/seeds.rb",
 					"semi_transient": false,
 					"settings":
@@ -1084,24 +1231,24 @@
 						"translation.y": 442.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 10,
 					"type": "text"
 				},
 				{
-					"buffer": 5,
+					"buffer": 9,
 					"file": "app/admin/vote.rb",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1148,
+						"buffer_size": 1170,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1143,
-								1143
+								1169,
+								1169
 							]
 						],
 						"settings":
@@ -1114,11 +1261,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 6,
 					"type": "text"
 				},
 				{
-					"buffer": 6,
+					"buffer": 10,
 					"file": "app/controllers/votes_controller.rb",
 					"semi_transient": false,
 					"settings":
@@ -1144,11 +1291,11 @@
 						"translation.y": 699.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 9,
 					"type": "text"
 				},
 				{
-					"buffer": 7,
+					"buffer": 11,
 					"file": "app/views/votes/_form.html.erb",
 					"semi_transient": false,
 					"settings":
@@ -1174,7 +1321,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 8,
 					"type": "text"
 				}
 			]

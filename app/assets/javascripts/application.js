@@ -69,7 +69,13 @@ function showTimeLeftToVote() {
   }
 
   $('#countdown_alert').countdown(cutoffDateMoment.toDate(), function(event) {
-    $(this).html(event.strftime('<strong>%D d %H:%M:%S</strong>')
+    var countdownPrefix = '';
+
+    if (cutoffDateMoment.diff(moment(), 'days') > 0) {
+      countdownPrefix = '%D d';
+    }
+
+    $(this).html(event.strftime('<strong>' + countdownPrefix + ' %H:%M:%S</strong>')
       + ' until results are official.<br/><br/>');
   });
 }

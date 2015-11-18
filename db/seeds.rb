@@ -45,4 +45,6 @@ Restaurant.all.each do |r|
   Nomination.create(restaurant_id: r.id)
 end
 
-Cutoff.create(cutoff_at: '2015-11-18T14:00:00')
+Cutoff.create(cutoff_at: '2015-11-19T14:00:00')
+
+User.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')

@@ -16,6 +16,7 @@ ActiveAdmin.register Vote do
   end
 
   index do
+    selectable_column
     column :member_id, sortable: :member_id do |m|
       Member.find(m.member_id).name
     end
